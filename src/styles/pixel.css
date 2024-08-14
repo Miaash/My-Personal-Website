@@ -1670,6 +1670,22 @@ button.section-black:focus {
   border-right: 2px solid #08080e;
 }
 
+.navbar .navbar-nav .nav-link.clicked:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* 눌렸을때 */
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+
 .navbar .navbar-nav .nav-link .nav-link-inner-text {
   margin-left: 0.25rem;
 }
@@ -3696,6 +3712,25 @@ button.section-black:focus {
   box-shadow: none;
 }
 
+.btn-close {
+  background: #c0c0c0;
+  border-left: 2px solid #ededed;
+  border-top: 2px solid #ededed;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  height: 16px;
+  width: 16px;
+}
+
+.btn-close:active {
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+  height: 16px;
+  width: 16px;
+}
+
 /**
  * = Cards
  */
@@ -4270,29 +4305,124 @@ textarea[resize="horizontal"] {
  * And the sprite generator https://www.toptal.com/developers/css/sprite-generator/
  */
 
-.w95-start {
-  width: 13px;
-  height: 13px;
+.w95-windows {
+  width: 18px;
+  height: 18px;
   background: url("../../public/assets/images/w95-icons-windows.png") center
     no-repeat;
+  background-size: contain; /** 이미지 비율 깨지지 않게 조절 가능 */
 }
+
 .w95-closed-file {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   background: url("../../public/assets/images/w95-icons-closed-file.png") center
     no-repeat;
+  background-size: contain;
 }
+
 .w95-opened-file-empty {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   background: url("../../public/assets/images/w95-icons-opened-file-empty.png")
     center no-repeat;
+  background-size: contain;
 }
+
 .w95-opened-file-full {
-  width: 16px;
-  height: 16px;
+  width: 34px;
+  height: 34px;
   background: url("../../public/assets/images/w95-icons-opened-file-full.png")
     center no-repeat;
+  background-size: contain;
+}
+
+.w95-bin-empty {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-bin-empty.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-bin-full {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-bin-full.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-computer {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-computer.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-cd {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-cd.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-resume {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-resume2.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-me {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-me.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-camera {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-camera.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-calendar {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-calendar.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-paint {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/assets/images/w95-icons-paint.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-btn-x {
+  width: 11px;
+  height: 11px;
+  background: url("../../public/assets/images/w95-icons-btn-x.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-btn-q {
+  width: 11px;
+  height: 11px;
+  background: url("../../public/assets/images/w95-icons-btn-q.png") center
+    no-repeat;
+  background-size: contain;
 }
 
 /* .w95-file-alert {

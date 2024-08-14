@@ -24,11 +24,6 @@ export default function NavBar() {
       title: "second popup",
       path: "/main",
     },
-    {
-      id: 3,
-      title: "third popup",
-      path: "/main",
-    },
   ];
   return (
     <footer className="fixed bottom-0 left-0 w-full">
@@ -38,8 +33,12 @@ export default function NavBar() {
       >
         <ul className="navbar-nav navbar-nav-hover align-items-center flex flex-row items-center">
           <li className="nav-item">
-            <a href="/main" className="nav-link" role="button">
-              <span className="w95-start inline-block h-16 w-16"></span>
+            <a
+              href="/main"
+              className="nav-link flex items-center justify-center"
+              role="button"
+            >
+              <span className="w95-windows h-18 w-18 inline-block"></span>
               <span className="nav-link-inner-text">Start</span>
             </a>
           </li>
@@ -50,6 +49,11 @@ export default function NavBar() {
               </a>
             </li>
           ))}
+          <li className="nav-item open">
+            <a href="/main" className="nav-link clicked" role="button">
+              <span className="nav-link-inner-text">Welcome</span>
+            </a>
+          </li>
         </ul>
         <div className="time text-center">1:47 PM</div>
       </nav>
