@@ -1,10 +1,9 @@
 /* windows95 ui 스타일코드 */
-
 @font-face {
   font-family: "Windows 95";
   src:
-    url("../../public/fonts/w-95-sans-serif.woff2") format("woff2"),
-    url("../../public/fonts/w-95-sans-serif.woff") format("woff");
+    url("../../public/assets/fonts/w-95-sans-serif.woff2") format("woff2"),
+    url("../../public/assets/fonts/w-95-sans-serif.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -1654,6 +1653,7 @@ button.section-black:focus {
   border-right: 1px solid #fcfcfc;
   border-bottom: 1px solid #fcfcfc;
   padding: 5px 15px;
+  height: 80%;
 }
 
 .navbar .navbar-nav .nav-link:before {
@@ -4269,6 +4269,31 @@ textarea[resize="horizontal"] {
  * Credit for the awesome W95 icons https://artage.io/en/icon-packs/original-windows-95-icons?li=all
  * And the sprite generator https://www.toptal.com/developers/css/sprite-generator/
  */
+
+.w95-start {
+  width: 13px;
+  height: 13px;
+  background: url("../../public/assets/images/w95-icons-windows.png") center
+    no-repeat;
+}
+.w95-closed-file {
+  width: 16px;
+  height: 16px;
+  background: url("../../public/assets/images/w95-icons-closed-file.png") center
+    no-repeat;
+}
+.w95-opened-file-empty {
+  width: 16px;
+  height: 16px;
+  background: url("../../public/assets/images/w95-icons-opened-file-empty.png")
+    center no-repeat;
+}
+.w95-opened-file-full {
+  width: 16px;
+  height: 16px;
+  background: url("../../public/assets/images/w95-icons-opened-file-full.png")
+    center no-repeat;
+}
 
 /* .w95-file-alert {
   width: 32px;
