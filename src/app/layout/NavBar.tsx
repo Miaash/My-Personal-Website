@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
+import Clock from "@/components/common/Clock";
 
 /**
  * [네비게이션 바 컴포넌트]
+ * - start메뉴: 현재 띄워져있는 팝업창 관리 & 환경설정 & 검색기능
  * - 현재 띄워져있는 팝업창 관리.
  * - 시계.
  * @returns
  */
 export default function NavBar() {
-  // TODO 시계 기능 구현 -> use client?
-  // 네비게이션바 시계
-  //   const [time, setTime] = useState("");
-  //   useEffect(() => {
-  //     setTime("12:38");
-  //   }, []);
   const openedPopup = [
     {
       id: 1,
@@ -55,7 +50,9 @@ export default function NavBar() {
             </a>
           </li>
         </ul>
-        <div className="time text-center">1:47 PM</div>
+        <div className="time text-center">
+          <Clock />
+        </div>
       </nav>
     </footer>
   );

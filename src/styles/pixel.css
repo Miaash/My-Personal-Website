@@ -1,9 +1,20 @@
 /* windows95 ui 스타일코드 */
+
+/**
+ * 폰트
+ */
 @font-face {
   font-family: "Windows 95";
   src:
-    url("../../public/assets/fonts/w-95-sans-serif.woff2") format("woff2"),
-    url("../../public/assets/fonts/w-95-sans-serif.woff") format("woff");
+    url("../../public/fonts/w-95-sans-serif.woff2") format("woff2"),
+    url("../../public/fonts/w-95-sans-serif.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Windows 95-ko";
+  src: url("../../public/fonts/gulim.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -3712,7 +3723,7 @@ button.section-black:focus {
   box-shadow: none;
 }
 
-.btn-close {
+.btn-control {
   background: #c0c0c0;
   border-left: 2px solid #ededed;
   border-top: 2px solid #ededed;
@@ -3722,7 +3733,7 @@ button.section-black:focus {
   width: 16px;
 }
 
-.btn-close:active {
+.btn-control:active {
   border-top: 2px solid #000;
   border-left: 2px solid #000;
   border-right: 2px solid #efefef;
@@ -4308,15 +4319,14 @@ textarea[resize="horizontal"] {
 .w95-windows {
   width: 18px;
   height: 18px;
-  background: url("../../public/assets/images/w95-icons-windows.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-windows.png") center no-repeat;
   background-size: contain; /** 이미지 비율 깨지지 않게 조절 가능 */
 }
 
 .w95-closed-file {
   width: 32px;
   height: 32px;
-  background: url("../../public/assets/images/w95-icons-closed-file.png") center
+  background: url("../../public/images/w95-icons-closed-file.png") center
     no-repeat;
   background-size: contain;
 }
@@ -4324,23 +4334,23 @@ textarea[resize="horizontal"] {
 .w95-opened-file-empty {
   width: 32px;
   height: 32px;
-  background: url("../../public/assets/images/w95-icons-opened-file-empty.png")
-    center no-repeat;
+  background: url("../../public/images/w95-icons-opened-file-empty.png") center
+    no-repeat;
   background-size: contain;
 }
 
 .w95-opened-file-full {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-opened-file-full.png")
-    center no-repeat;
+  background: url("../../public/images/w95-icons-opened-file-full.png") center
+    no-repeat;
   background-size: contain;
 }
 
 .w95-bin-empty {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-bin-empty.png") center
+  background: url("../../public/images/w95-icons-bin-empty.png") center
     no-repeat;
   background-size: contain;
 }
@@ -4348,80 +4358,77 @@ textarea[resize="horizontal"] {
 .w95-bin-full {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-bin-full.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-bin-full.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-computer {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-computer.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-computer.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-internet {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/images/w95-icons-internet.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-cd {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-cd.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-cd.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-resume {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-resume2.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-resume2.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-me {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-me.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-me.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-camera {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-camera.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-camera.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-calendar {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-calendar.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-calendar.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-paint {
   width: 34px;
   height: 34px;
-  background: url("../../public/assets/images/w95-icons-paint.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-paint.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-btn-x {
   width: 11px;
   height: 11px;
-  background: url("../../public/assets/images/w95-icons-btn-x.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-btn-x.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-btn-q {
   width: 11px;
   height: 11px;
-  background: url("../../public/assets/images/w95-icons-btn-q.png") center
-    no-repeat;
+  background: url("../../public/images/w95-icons-btn-q.png") center no-repeat;
   background-size: contain;
 }
 
@@ -6963,14 +6970,14 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Windows 95", sans-serif;
-  font-weight: 400;
+  font-family: "Windows 95", "Windows 95-ko";
+  font-weight: 700;
 }
 
 p,
 ol li,
 ul li {
-  font-family: "Windows 95", sans-serif;
+  font-family: "Windows 95", "Windows 95-ko";
   font-size: 0.6rem;
   font-weight: 300;
   line-height: 2;
