@@ -1,59 +1,30 @@
-"use client";
-import AlertModal from "@/components/modal/AlertModal";
-import DefaultWindow from "@/components/window/DefaultWindow";
-import { useEffect, useState } from "react";
-
 /**
- * [메인페이지]
+ * [Folders]
+ * MainPage에 나열되는 폴더 아이콘 모음 컴포넌트
  * @returns
  */
-export default function MainPage() {
-  // WelcomePopup 제어
-  const [isWelcomeShow, setIsWelcomeShow] = useState<boolean>(false);
-  // WelcomePopup 선택
-  const [isWelcomeSelected, setIsWelcomeSelected] = useState<boolean>(false);
-  // WelcomePopup 제어
-  const [isPortfolioShow, setIsPortfolioShow] = useState<boolean>(false);
-  // WelcomePopup 선택
-  const [isPortfolioSelected, setIsPortfolioSelected] =
-    useState<boolean>(false);
-  // AlertModal 제어
-  const [isAlertShow, setIsAlertShow] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsWelcomeShow(true);
-  }, []);
-
+export default function Folders() {
   return (
     <>
-      {/* <p className="text font-bold underline">My Personal Website</p> */}
-      {/* <button className="btn btn-sm btn-primary border-dark mr-2" type="button">
-        <span className="btn-text">Primary</span>
-      </button> */}
       <div className="absolute left-0 top-0 flex flex-col p-[6px]">
-        <div
-          className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
-          onDoubleClick={() => setIsPortfolioShow(true)}
-        >
-          <span
-            className={`${isPortfolioShow ? "w95-opened-file-full" : "w95-closed-file"} inline-block`}
-          ></span>
+        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
+          <span className="w95-closed-file inline-block"></span>
           <span className="inline-block break-words pt-[3px] text-[8px] text-white">
-            Portfolio
+            portfolio-default
           </span>
         </div>
-        {/* <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-opened-file-full h-35 w-35 inline-block"></span>
-          <span className="inline-block break-words pt-[3px] text-[8px] text-white">
-            portfolio-full
-          </span>
-        </div> */}
         {/* <div className="h-35 w-35 mb-[13px] flex flex-col items-center cursor-pointer">
         <span className="w95-opened-file-empty h-35 w-35 inline-block"></span>
         <span className="inline-block pt-[3px] text-[8px] text-white">
           portfolio-empty
         </span>
         </div> */}
+        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
+          <span className="w95-opened-file-full h-35 w-35 inline-block"></span>
+          <span className="inline-block break-words pt-[3px] text-[8px] text-white">
+            portfolio-full
+          </span>
+        </div>
         <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
           <span className="w95-bin-empty h-35 w-35 inline-block"></span>
           <span className="inline-block pt-[3px] text-[8px] text-white">
@@ -117,35 +88,6 @@ export default function MainPage() {
           </span>
         </div>
       </div>
-      {/* popup 영역 start */}
-      {/* Welcome Popup */}
-      <DefaultWindow
-        isShow={isWelcomeShow}
-        setIsShow={setIsWelcomeShow}
-        title="Welcome"
-        contents="Welcome to my Website"
-        isSelected={isWelcomeSelected}
-        setIsSelected={setIsWelcomeSelected}
-      />
-      <DefaultWindow
-        isShow={isPortfolioShow}
-        setIsShow={setIsPortfolioShow}
-        title="Porfolio"
-        contents="포트폴리오를 구경하고 가세요."
-        isSelected={isPortfolioSelected}
-        setIsSelected={setIsPortfolioSelected}
-      />
-      {/* popup 영역 end */}
-      {/* modal 영역 start */}
-      {isAlertShow && (
-        <AlertModal
-          isShow={isAlertShow}
-          setIsShow={setIsAlertShow}
-          title="Notice!"
-          text="The minimum system requirements called for a 386DX processor, 4MB of RAM, and a 120MB hard drive."
-        />
-      )}
-      {/* modal 영역 end */}
     </>
   );
 }
