@@ -123,7 +123,7 @@ export default function MainPage() {
         isShow={isWelcomeShow}
         setIsShow={setIsWelcomeShow}
         title="Welcome"
-        contents="Welcome to my Website"
+        contents="환영합니다. 저의 사이트에 와주셔서 감사합니다."
         isSelected={isWelcomeSelected}
         setIsSelected={setIsWelcomeSelected}
       />
