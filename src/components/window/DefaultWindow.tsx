@@ -1,24 +1,46 @@
+import AboutMeContent from "../content/AboutMeContent";
+import PortfolioContent from "../content/PortfolioContent";
+import RecycleBinContent from "../content/RecycleBinContent";
+import WelcomeContent from "../content/WelcomeContent";
 /**
- * [DefaultWindowType]
+ * [DefaultWindow]
  * 기본 창으로 쓰이는 컴포넌트.
- * @returns
  */
 
+// 기본윈도우컴포넌트타입
 interface DefaultWindowType {
-  title: string;
-  contents: string;
+  id: number;
   isShow: boolean;
-  setIsShow: (target: boolean) => void;
   isSelected: boolean;
-  setIsSelected: (target: boolean) => void;
+  isHide: boolean;
+  onToggleShow: (id: number) => void;
+  onToggleClose: (id: number) => void;
+  onToggleSelected: (id: number) => void;
+  onToggleHide: (id: number) => void;
+  title: string;
+  contentKey: string;
 }
+
+// contentKey에 대응하는 컴포넌트 매핑
+const contentComponents: Record<string, JSX.Element> = {
+  portfolio: <PortfolioContent />,
+  aboutMe: <AboutMeContent />,
+  recycleBin: <RecycleBinContent />,
+  welcome: <WelcomeContent />,
+};
+
+// TODO(20240822/x) React Draggable 라이브러리로 드래그 기능 추가
 export default function DefaultWindow({
-  title,
-  contents,
+  id,
   isShow,
-  setIsShow,
   isSelected,
-  setIsSelected,
+  isHide,
+  onToggleShow,
+  onToggleClose,
+  onToggleSelected,
+  onToggleHide,
+  title,
+  contentKey,
 }: DefaultWindowType) {
   return (
     <div
@@ -30,13 +52,21 @@ export default function DefaultWindow({
         <span className="text-center text-[10px] text-white">{title}</span>
         <div>
           {/* 물음표버튼 */}
-          <button className="btn-control relative mr-2 p-0" type="button">
+          {/* <button className="btn-control relative mr-2 p-0" type="button">
+            <span className="w95-btn-q absolute left-[-1px] top-0"></span>
+          </button> */}
+          {/* 숨기기버튼 */}
+          <button
+            className="btn-control relative mr-2 p-0"
+            type="button"
+            onClick={() => onToggleHide(id)}
+          >
             <span className="w95-btn-q absolute left-[-1px] top-0"></span>
           </button>
           {/* 닫기버튼 */}
           <button
             className="btn-control relative mr-[3px] p-0"
-            onClick={() => setIsShow(false)}
+            onClick={() => onToggleClose(id)}
           >
             <span className="w95-btn-x absolute left-[-1px] top-0"></span>
           </button>
@@ -44,9 +74,7 @@ export default function DefaultWindow({
       </div>
       <div className="h-full w-full p-[10px]">
         <div className="h-full w-full">
-          {/* <div> */}
-          <p className="text-bold text-[15px]">{contents}</p>
-          {/* </div> */}
+          <div>{contentComponents[contentKey]}</div>
         </div>
       </div>
     </div>

@@ -1,25 +1,24 @@
+"use client";
 import Clock from "@/components/common/Clock";
+import { useWindowStore } from "@/store/store";
 
 /**
  * [네비게이션 바 컴포넌트]
  * - start메뉴: 현재 띄워져있는 팝업창 관리 & 환경설정 & 검색기능
- * - 현재 띄워져있는 팝업창 관리.
+ * - 현재 띄워져있는 팝업창 관리. -> store windowsList
  * - 시계.
- * @returns
  */
 export default function NavBar() {
-  const openedPopup = [
-    {
-      id: 1,
-      title: "first popup",
-      path: "/main",
-    },
-    {
-      id: 2,
-      title: "second popup",
-      path: "/main",
-    },
-  ];
+  // 전역상태관리 state, action
+  const {
+    windows,
+    addWindow,
+    removeWindow,
+    toggleShow,
+    toggleSelected,
+    toggleHide,
+  } = useWindowStore();
+
   return (
     <footer className="fixed bottom-0 left-0 w-full">
       <nav
@@ -37,18 +36,20 @@ export default function NavBar() {
               <span className="nav-link-inner-text">Start</span>
             </a>
           </li>
-          {openedPopup.map((popup) => (
-            <li className="nav-item" key={popup.id}>
-              <a href="/main" className="nav-link" role="button">
-                <span className="nav-link-inner-text">{popup.title}</span>
+          {windows.map((window, idx) => (
+            <li
+              className="nav-item"
+              key={idx}
+              onClick={() => toggleHide(window.id)}
+            >
+              <a
+                className={`nav-link ${window.isHide ? "opened" : ""}`}
+                role="button"
+              >
+                <span className="nav-link-inner-text">{window.title}</span>
               </a>
             </li>
           ))}
-          <li className="nav-item open">
-            <a href="/main" className="nav-link clicked" role="button">
-              <span className="nav-link-inner-text">Welcome</span>
-            </a>
-          </li>
         </ul>
         <div className="time text-center">
           <Clock />

@@ -1681,7 +1681,7 @@ button.section-black:focus {
   border-right: 2px solid #08080e;
 }
 
-.navbar .navbar-nav .nav-link.clicked:before {
+.navbar .navbar-nav .nav-link.opened:before {
   content: "";
   display: block;
   width: 100%;
