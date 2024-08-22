@@ -1,3 +1,6 @@
+"use client";
+import { useRef } from "react";
+import Draggable from "react-draggable";
 import AboutMeContent from "../content/AboutMeContent";
 import PortfolioContent from "../content/PortfolioContent";
 import RecycleBinContent from "../content/RecycleBinContent";
@@ -42,41 +45,48 @@ export default function DefaultWindow({
   title,
   contentKey,
 }: DefaultWindowType) {
+  const dragRef = useRef<HTMLDivElement>(null);
   return (
-    <div
-      className={`card card-tertiary z-9999 fixed left-1/4 top-1/2 h-[100px] w-[500px] ${
-        isShow ? "block" : "hidden"
-      }`}
+    <Draggable
+      handle=".card-header"
+      nodeRef={dragRef}
+      // bounds='body'
     >
-      <div className="card-header align-center flex w-full justify-between pr-[3px] text-left">
-        <span className="text-center text-[10px] text-white">{title}</span>
-        <div>
-          {/* 물음표버튼 */}
-          {/* <button className="btn-control relative mr-2 p-0" type="button">
+      <div
+        ref={dragRef}
+        onClick={() => onToggleSelected(id)}
+        className={`card card-tertiary z-9999 fixed left-1/4 top-1/2 h-[100px] w-[500px] ${isShow ? "block" : "hidden"} ${isSelected ? "z-[9999]" : "z-[1]"}`}
+      >
+        <div className="card-header align-center flex w-full justify-between pr-[3px] text-left">
+          <span className="text-center text-[10px] text-white">{title}</span>
+          <div>
+            {/* 물음표버튼 */}
+            {/* <button className="btn-control relative mr-2 p-0" type="button">
             <span className="w95-btn-q absolute left-[-1px] top-0"></span>
           </button> */}
-          {/* 숨기기버튼 */}
-          <button
-            className="btn-control relative mr-2 p-0"
-            type="button"
-            onClick={() => onToggleHide(id)}
-          >
-            <span className="w95-btn-q absolute left-[-1px] top-0"></span>
-          </button>
-          {/* 닫기버튼 */}
-          <button
-            className="btn-control relative mr-[3px] p-0"
-            onClick={() => onToggleClose(id)}
-          >
-            <span className="w95-btn-x absolute left-[-1px] top-0"></span>
-          </button>
+            {/* 숨기기버튼 */}
+            <button
+              className="btn-control relative mr-2 p-0"
+              type="button"
+              onClick={() => onToggleHide(id)}
+            >
+              <span className="w95-btn-q absolute left-[-1px] top-0"></span>
+            </button>
+            {/* 닫기버튼 */}
+            <button
+              className="btn-control relative mr-[3px] p-0"
+              onClick={() => onToggleClose(id)}
+            >
+              <span className="w95-btn-x absolute left-[-1px] top-0"></span>
+            </button>
+          </div>
+        </div>
+        <div className="h-full w-full p-[10px]">
+          <div className="h-full w-full">
+            <div>{contentComponents[contentKey]}</div>
+          </div>
         </div>
       </div>
-      <div className="h-full w-full p-[10px]">
-        <div className="h-full w-full">
-          <div>{contentComponents[contentKey]}</div>
-        </div>
-      </div>
-    </div>
+    </Draggable>
   );
 }

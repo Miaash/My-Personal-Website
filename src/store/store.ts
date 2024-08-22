@@ -36,21 +36,39 @@ export const useWindowStore = create<windowsStateListType>((set) => ({
   // 활성화된 window 리스트
   windows: [],
   // window추가 action
-  // TODO(20240822/x) Window 중복 안되게 수정
+  // TODO(20240822/완료) Window 중복 안되게 수정필요
   addWindow: ({ title, contentKey, isShow, isSelected, isHide }) =>
-    set((state) => ({
-      windows: [
-        ...state.windows,
-        {
-          id: state.windows.length + 1,
-          contentKey,
-          isShow,
-          title,
-          isSelected,
-          isHide,
-        },
-      ],
-    })),
+    set((state) => {
+      // 추가하려는 window가 기존 windowList에 존재하는지
+      const existingWindow = state.windows.find(
+        (window) => window.title === title,
+      );
+
+      // 존재하면 기존 창 isSelected를 true로 변경.
+      if (existingWindow) {
+        return {
+          windows: state.windows.map((window) =>
+            window.title === title
+              ? { ...window, isShow: true, isSelected: true, isHide: false }
+              : window,
+          ),
+        };
+      }
+
+      return {
+        windows: [
+          ...state.windows,
+          {
+            id: state.windows.length + 1,
+            contentKey,
+            isShow,
+            title,
+            isSelected,
+            isHide,
+          },
+        ],
+      };
+    }),
   // window삭제 action
   removeWindow: (id) =>
     set((state) => ({
