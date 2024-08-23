@@ -39,6 +39,12 @@
   background-color: #5e72e4 !important;
 }
 
+.bg-light-yellow {
+  /* background-color: #fdfce0 !important; */
+  background: url("../../public/images/w95-icons-yellow-bg.png");
+  /* background-size: contain; */
+}
+
 a.bg-blue:hover,
 a.bg-blue:focus,
 button.bg-blue:hover,
@@ -4432,407 +4438,20 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
-/* .w95-file-alert {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -10px;
+.w95-btn-hide {
+  width: 11px;
+  height: 11px;
+  background: url("../../public/images/w95-icons-btn-hide.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-img-computer {
+  width: 350px;
+  height: 250px;
+  background: url("../../public/images/w95-icons-img-computer.png") center
+    no-repeat;
+  background-size: contain;
 }
-
-.w95-floppy {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -10px;
-}
-
-.w95-printer {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -62px;
-}
-
-.w95-blocks {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -62px;
-}
-
-.w95-printer-progress {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -62px;
-}
-
-.w95-cd-reader {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -114px;
-}
-
-.w95-text-file {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -114px;
-}
-
-.w95-floppy-2 {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -62px;
-}
-
-.w95-floppy-3 {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -114px;
-}
-
-.w95-text-file-a {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -10px;
-}
-
-.w95-window-wait {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -114px;
-}
-
-.w95-floppy-closed {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -166px;
-}
-
-.w95-printer-floppy {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -166px;
-}
-
-.w95-folder-file-transfer {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -166px;
-}
-
-.w95-file-settings {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -166px;
-}
-
-.w95-folder-settings {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -10px;
-}
-
-.w95-folder-rename {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -62px;
-}
-
-.w95-trash-bin-folder {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -114px;
-}
-
-.w95-trash-bin-file {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -166px;
-}
-
-.w95-app-folder-transfer {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -218px;
-}
-
-.w95-file-text {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -218px;
-}
-
-.w95-file-transfer-error {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -218px;
-}
-
-.w95-file-settings-icon {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -218px;
-}
-
-.w95-trash-bin-file-folder {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -218px;
-}
-
-.w95-floppy-button {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -10px;
-}
-
-.w95-folder-windows-apps {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -62px;
-}
-
-.w95-multiple-files {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -114px;
-}
-
-.w95-folder-printer {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -166px;
-}
-
-.w95-windows {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -218px;
-}
-
-.w95-search {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -270px;
-}
-
-.w95-folder {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -270px;
-}
-
-.w95-folder-letters {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -270px;
-}
-
-.w95-folder-tools {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -270px;
-}
-
-.w95-music-cd {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -270px;
-}
-
-.w95-blue-screen {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -270px;
-}
-
-.w95-tree {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -10px;
-}
-
-.w95-folder-open {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -62px;
-}
-
-.w95-file-printer {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -114px;
-}
-
-.w95-file-search {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -166px;
-}
-
-.w95-trash-bin-empty {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -218px;
-}
-
-.w95-folder-screens {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -270px;
-}
-
-.w95-help {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -322px;
-}
-
-.w95-trash-bin-full {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -322px;
-}
-
-.w95-screen-night {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -322px;
-}
-
-.w95-arrow-right-upwards {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -322px;
-}
-
-.w95-cd-reader-open {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -322px;
-}
-
-.w95-window-wait-2 {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -322px;
-}
-
-.w95-screen-day {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -322px;
-}
-
-.w95-desk {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -10px;
-}
-
-.w95-window-empty {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -62px;
-}
-
-.w95-open {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -114px;
-}
-
-.w95-hand {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -166px;
-}
-
-.w95-window-folder {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -218px;
-}
-
-.w95-globe {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -270px;
-}
-
-.w95-search-file {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -322px;
-}
-
-.w95-file-text-a {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -10px -374px;
-}
-
-.w95-nodes {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -62px -374px;
-}
-
-.w95-screen-windows {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -114px -374px;
-}
-
-.w95-cogs {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -166px -374px;
-}
-
-.w95-multiple-screens {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -218px -374px;
-}
-
-.w95-folder-files {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -270px -374px;
-}
-
-.w95-screens-2 {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -322px -374px;
-}
-
-.w95-windows-file {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -374px -374px;
-}
-
-.w95-floppy-progress {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -426px -10px;
-}
-
-.w95-component {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -426px -62px;
-}
-
-.w95-floppy-error {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -426px -114px;
-}
-
-.w95-cd {
-  width: 32px;
-  height: 32px;
-  background: url("../img/w95-icons-sprite.png") -426px -166px;
-} */
 
 .icon {
   text-align: center;
@@ -7794,6 +7413,11 @@ a:hover,
 
 .text-gray-800 .text-muted {
   color: rgba(79, 96, 109, 0.7) !important;
+}
+
+.text-title {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /**

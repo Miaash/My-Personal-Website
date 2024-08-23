@@ -55,7 +55,7 @@ export default function DefaultWindow({
       <div
         ref={dragRef}
         onClick={() => onToggleSelected(id)}
-        className={`card card-tertiary z-9999 fixed left-1/4 top-1/2 h-[100px] w-[500px] ${isShow ? "block" : "hidden"} ${isSelected ? "z-[9999]" : "z-[1]"}`}
+        className={`card card-tertiary z-9999 fixed left-[30%] top-[10%] h-[80%] w-[700px] ${isShow ? "block" : "hidden"} ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div className="card-header align-center flex w-full justify-between pr-[3px] text-left">
           <span className="text-center text-[10px] text-white">{title}</span>
@@ -70,7 +70,7 @@ export default function DefaultWindow({
               type="button"
               onClick={() => onToggleHide(id)}
             >
-              <span className="w95-btn-q absolute left-[-1px] top-0"></span>
+              <span className="w95-btn-hide absolute left-[-1px] top-0"></span>
             </button>
             {/* 닫기버튼 */}
             <button
