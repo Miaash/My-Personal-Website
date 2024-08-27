@@ -1,13 +1,14 @@
 /**
- * [Portfolio window용 content 컴포넌트]
+ * [Resume window용 content 컴포넌트]
  */
 
-// TODO(20240827/x) 포트폴리오 화면 퍼블리싱 추가
-export default function PortfolioContent() {
+// TODO(20240827/x) 이력서 페이지 추가
+
+export default function ResumeContent() {
   return (
     <div className="h-full w-full">
       <h1 className="text-title mt-[10px] pl-[20pxs]">
-        Welcome to My WebSite <span className="text-gray-100">2024</span>
+        Resume <span className="text-gray-100">2024</span>
       </h1>
       <div className="mt-[30px] flex h-full w-full justify-center">
         <div className="bg-light-yellow h-[600px] w-[700px] justify-center p-[25px]">

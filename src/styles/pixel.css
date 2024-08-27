@@ -4453,6 +4453,20 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-smile {
+  width: 30px;
+  height: 30px;
+  background: url("../../public/images/w95-icons-smile.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-tip {
+  width: 11px;
+  height: 11px;
+  background: url("../../public/images/w95-icons-tip.png") center no-repeat;
+  background-size: contain;
+}
+
 .icon {
   text-align: center;
   display: inline-flex;
@@ -7513,5 +7527,3 @@ a:hover,
 .tooltip-inner {
   box-shadow: 0 0.5rem 1rem rgba(42, 53, 79, 0.12);
 }
-
-/*# sourceMappingURL=pixel.css.map */

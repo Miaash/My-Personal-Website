@@ -8,6 +8,7 @@ import { useWindowStore } from "@/store/store";
  * - 현재 띄워져있는 팝업창 관리. -> store windowsList
  * - 시계.
  */
+// TODO(20240827/x) start버튼에 열린 창 내역 뿌려주기
 export default function NavBar() {
   // 전역상태관리 state, action
   const {
@@ -20,7 +21,7 @@ export default function NavBar() {
   } = useWindowStore();
 
   return (
-    <footer className="fixed bottom-0 left-0 w-full">
+    <footer className="z-100000 fixed bottom-0 left-0 w-full">
       <nav
         id="navbar-footer"
         className="navbar navbar-main navbar-expand-lg navbar-dark justify-content-between navbar-footer flex items-center justify-between"
