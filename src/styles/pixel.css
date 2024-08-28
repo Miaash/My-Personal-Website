@@ -4424,6 +4424,20 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-note {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/images/w95-icons-note.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-my-web {
+  width: 34px;
+  height: 34px;
+  background: url("../../public/images/w95-icons-my-web.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-btn-x {
   width: 11px;
   height: 11px;
@@ -4442,6 +4456,20 @@ textarea[resize="horizontal"] {
   width: 11px;
   height: 11px;
   background: url("../../public/images/w95-icons-btn-hide.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-btn-max {
+  width: 9px;
+  height: 9px;
+  background: url("../../public/images/w95-icons-btn-max.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-btn-min {
+  width: 11px;
+  height: 11px;
+  background: url("../../public/images/w95-icons-btn-min.png") center no-repeat;
   background-size: contain;
 }
 

@@ -22,6 +22,9 @@ export default function MainPage() {
 
   // TODO(20240822/완료) Welcome Window 두 건 생기는 부분 수정 -> store add action 중복안되도록
   // TODO(20240823/완료) isSelected가 true면 다른 windows보다 z-index 커야함.
+  // TODO(20240828/x) 폴더 컴포넌트 적용하기
+  // TODO(20240828/x) 폴더 클릭 시, 열린 폴더로 아이콘 변경.
+  // TODO(20240828/x) 인터넷 클릭 시, window창 내부에 google띄우기
   useEffect(() => {
     addWindow({
       title: "Welcome",
@@ -34,17 +37,13 @@ export default function MainPage() {
 
   return (
     <>
-      {/* <p className="text font-bold underline">My Personal Website</p> */}
-      {/* <button className="btn btn-sm btn-primary border-dark mr-2" type="button">
-        <span className="btn-text">Primary</span>
-      </button> */}
       <div className="main absolute left-0 top-0 flex flex-col p-[10px]">
         <div
           className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
           onDoubleClick={() =>
             addWindow({
-              title: "Portfolio",
-              contentKey: "portfolio",
+              title: "Projects",
+              contentKey: "projects",
               isShow: true,
               isSelected: true,
               isHide: false,
@@ -56,7 +55,7 @@ export default function MainPage() {
           ></span> */}
           <span className="w95-closed-file inline-block"></span>
           <span className="inline-block break-words pt-[5px] text-[8px] text-white">
-            Portfolio
+            Projects
           </span>
         </div>
         {/* <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
@@ -113,7 +112,7 @@ export default function MainPage() {
           </span>
         </div>
       </div>
-      <div className="absolute left-[90px] top-0 flex flex-col p-[6px]">
+      <div className="absolute left-[90px] top-0 flex flex-col p-[10px]">
         <div
           className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
           onDoubleClick={() =>
@@ -131,7 +130,18 @@ export default function MainPage() {
             About me
           </span>
         </div>
-        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
+        <div
+          className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
+          onDoubleClick={() =>
+            addWindow({
+              title: "Photos",
+              contentKey: "photos",
+              isShow: true,
+              isSelected: true,
+              isHide: false,
+            })
+          }
+        >
           <span className="w95-camera h-35 w-35 inline-block"></span>
           <span className="inline-block pt-[2px] text-[8px] text-white">
             Photos

@@ -7,7 +7,7 @@ export const formatTime = (date: Date) => {
   const mimute = date.getMinutes();
   const period = hour >= 12 ? "PM" : "AM";
 
-  const formmatedHour = (hour % 12 || 12).toString().padStart(2, "0");
+  const formmatedHour = (hour % 12 || 12).toString();
   const formattedMinute = mimute.toString().padStart(2, "0");
 
   return `${formmatedHour}:${formattedMinute} ${period}`;

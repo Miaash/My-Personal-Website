@@ -8,12 +8,11 @@ export default function WelcomeContent() {
       <h1 className="text-title mt-[10px] pl-[20pxs]">
         Welcome to My WebSite <span className="text-gray-100">2024</span>
       </h1>
-      <div className="mt-[30px] flex w-full justify-center">
-        <div className="bg-light-yellow justify-center p-[30px]">
+      <div className="mt-[30px] flex h-full w-full justify-center">
+        <div className="bg-light-yellow flex h-full w-full flex-col justify-center p-[30px]">
           <div className="flex items-center justify-center text-center">
             <span className="w95-smile mr-[10px] inline-block"></span>
             <p className="text-[15px]">Did you know...</p>
-            {/* <p className="text-[25px]">안녕하세요.</p> */}
           </div>
           <div className="mt-[20px] flex flex-col items-center justify-center text-[12px]">
             <p className="text-[13px]">
@@ -23,14 +22,6 @@ export default function WelcomeContent() {
             <span className="w95-img-computer inline-block"></span>
           </div>
         </div>
-        {/* <div className="h-full flex-col">
-          <button
-            className="btn btn-sm btn-primary border-dark mr-2"
-            type="button"
-          >
-            <span className="btn-text">Close</span>
-          </button>
-        </div> */}
       </div>
     </div>
   );

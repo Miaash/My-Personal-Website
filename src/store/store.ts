@@ -50,7 +50,7 @@ export const useWindowStore = create<windowsStateListType>((set) => ({
           windows: state.windows.map((window) =>
             window.title === title
               ? { ...window, isShow: true, isSelected: true, isHide: false }
-              : window,
+              : { ...window, isSelected: false },
           ),
         };
       }
@@ -74,6 +74,13 @@ export const useWindowStore = create<windowsStateListType>((set) => ({
     set((state) => ({
       windows: state.windows.filter((window) => window.id !== id),
     })),
+  // window show제어 action
+  toggleShow: (id) =>
+    set((state) => ({
+      windows: state.windows.map((window) =>
+        window.id === id ? { ...window, isShow: !window.isShow } : window,
+      ),
+    })),
   // 선택된 window 변경 action => 선택은 요소들 중 한개만 true
   toggleSelected: (id) =>
     set((state) => ({
@@ -83,20 +90,35 @@ export const useWindowStore = create<windowsStateListType>((set) => ({
           : { ...window, isSelected: false },
       ),
     })),
-  // window show제어 action
-  toggleShow: (id) =>
-    set((state) => ({
-      windows: state.windows.map((window) =>
-        window.id === id ? { ...window, isShow: !window.isShow } : window,
-      ),
-    })),
-  // window숨김처리 action
+  // window숨김/보임상태 변환 action
   toggleHide: (id) =>
-    set((state) => ({
-      windows: state.windows.map((window) =>
+    set((state) => {
+      const newWindows = state.windows.map((window) =>
         window.id === id
-          ? { ...window, isShow: !window.isShow, isHide: !window.isHide }
+          ? {
+              ...window,
+              isShow: !window.isShow,
+              isHide: !window.isHide,
+            }
           : window,
-      ),
-    })),
+      );
+
+      // 숨김상태인 window중에서 해당 window id가 같은지 체크.
+      const wasHidden = state.windows.find(
+        (window) => window.id === id,
+      )?.isHide;
+
+      // 창이 숨김 상태에서 보임 상태로 전환될 때 toggleSelected 실행
+      if (wasHidden) {
+        return {
+          windows: newWindows.map((window) =>
+            window.id === id
+              ? { ...window, isSelected: true }
+              : { ...window, isSelected: false },
+          ),
+        };
+      }
+
+      return { windows: newWindows };
+    }),
 }));
