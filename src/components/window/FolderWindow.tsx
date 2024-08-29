@@ -163,8 +163,21 @@ export default function FolderWindow({
             </button>
           </div>
         </div>
-        <div className="p-[10px]">
+        <div className="card-body">
           <div>{contentComponents[contentKey]}</div>
+        </div>
+        <div className="card-footer">
+          <div className="card-footer-box">
+            <p className="text-[13px] text-black">
+              <span className="text-[9px] text-black">2</span>개체
+            </p>
+          </div>
+          <div className="card-footer-box">
+            <p className="text-[13px] text-black">
+              <span className="text-[9px] text-black">234</span>
+              <span className="text-[9px] text-black">KB</span>
+            </p>
+          </div>
         </div>
       </div>
     </Draggable>

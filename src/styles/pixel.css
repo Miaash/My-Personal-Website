@@ -3796,15 +3796,60 @@ button.section-black:focus {
 }
 
 .card-body {
-  padding: 10px 7px;
-  border-top: 2px solid #bdbdbd;
+  padding: 2px;
+  /* border-top: 2px solid #bdbdbd;
   border-left: 3px solid #bdbdbd;
   border-right: 3px solid #bdbdbd;
-  border-bottom: 2px solid #bdbdbd;
+  border-bottom: 2px solid #bdbdbd; */
 }
 
 .card-footer {
-  padding: 10px 7px;
+  /* padding: 10px 7px;
+  border-top: 2px solid #bdbdbd;
+  border-left: 3px solid #bdbdbd;
+  border-right: 3px solid #bdbdbd;
+  border-bottom: 2px solid #bdbdbd; */
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2px;
+  bottom: 0;
+  position: fixed;
+}
+
+.card-footer-box {
+  width: 55%;
+  justify-content: center;
+  padding-left: 5px;
+  border-top: 2px solid #929292;
+  border-left: 2px solid #949494;
+  border-right: 2px solid #dfdfdf;
+  border-bottom: 2px solid #eeeeee;
+}
+
+.card-footer-box:first-child {
+  width: 45%;
+}
+
+/* folder card */
+.folder-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* height: calc(100% - 38px); */
+}
+
+.folder-box {
+  flex: 1;
+  display: flex;
+  height: 233px;
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-top: 2px solid #08080e;
+  border-left: 2px solid #08080e;
+  border-right: 2px solid #fcfcfc;
+  border-bottom: 2px solid #fcfcfc;
 }
 
 /**
@@ -3837,25 +3882,6 @@ button.section-black:focus {
 .close:hover span:not(.sr-only),
 .close:focus span:not(.sr-only) {
   background-color: transparent;
-}
-
-/* folder card */
-.folder-content {
-  display: flex;
-  width: 100%;
-  height: calc(100% - 38px);
-}
-
-.folder-box {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  border-top: 2px solid #08080e;
-  border-left: 2px solid #08080e;
-  border-right: 2px solid #fcfcfc;
-  border-bottom: 2px solid #fcfcfc;
 }
 
 /**
@@ -4415,6 +4441,13 @@ textarea[resize="horizontal"] {
 .w95-resume {
   width: 34px;
   height: 34px;
+  background: url("../../public/images/w95-icons-resume2.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-resume.small {
+  width: 15px;
+  height: 15px;
   background: url("../../public/images/w95-icons-resume2.png") center no-repeat;
   background-size: contain;
 }

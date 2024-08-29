@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useWindowStore } from "@/store/store";
 import FolderWindow from "@/components/window/FolderWindow";
 import Folders from "@/components/Folders";
+import DocWindow from "@/components/window/DocWindow";
 
 /**
  * [메인페이지]
@@ -31,27 +32,44 @@ export default function MainPage() {
       isShow: true,
       isSelected: true,
       isHide: false,
+      isDoc: false,
     });
   }, []);
 
   return (
     <>
       <Folders />
-      {windows.map((window) => (
-        <FolderWindow
-          key={window.id}
-          id={window.id}
-          isShow={window.isShow}
-          isSelected={window.isSelected}
-          isHide={window.isSelected}
-          onToggleShow={() => toggleShow(window.id)}
-          onToggleSelected={() => toggleSelected(window.id)}
-          onToggleClose={() => removeWindow(window.id)}
-          onToggleHide={() => toggleHide(window.id)}
-          title={window.title}
-          contentKey={window.contentKey}
-        />
-      ))}
+      {windows.map((window) =>
+        window.isDoc ? (
+          <DocWindow
+            key={window.id}
+            id={window.id}
+            isShow={window.isShow}
+            isSelected={window.isSelected}
+            isHide={window.isSelected}
+            onToggleShow={() => toggleShow(window.id)}
+            onToggleSelected={() => toggleSelected(window.id)}
+            onToggleClose={() => removeWindow(window.id)}
+            onToggleHide={() => toggleHide(window.id)}
+            title={window.title}
+            contentKey={window.contentKey}
+          />
+        ) : (
+          <FolderWindow
+            key={window.id}
+            id={window.id}
+            isShow={window.isShow}
+            isSelected={window.isSelected}
+            isHide={window.isSelected}
+            onToggleShow={() => toggleShow(window.id)}
+            onToggleSelected={() => toggleSelected(window.id)}
+            onToggleClose={() => removeWindow(window.id)}
+            onToggleHide={() => toggleHide(window.id)}
+            title={window.title}
+            contentKey={window.contentKey}
+          />
+        ),
+      )}
     </>
   );
 }

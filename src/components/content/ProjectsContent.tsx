@@ -1,24 +1,31 @@
+import Icon from "../common/Icon";
 /**
  * [Portfolio window용 content 컴포넌트]
  */
 
 // TODO(20240827/x) 포트폴리오 화면 퍼블리싱 추가
 export default function ProjectsContent() {
+  const folderItems = [
+    {
+      iconNm: "MyWebSite",
+      contentKey: "myWebSite",
+      iconImgNm: "w95-resume",
+      textColor: "black",
+    },
+  ];
   return (
     <div className="folder-content">
       <div className="folder-box">
-        <div className="m-[8px] flex h-[50px] w-[50px] cursor-pointer flex-col items-center">
-          <span className="w95-closed-file inline-block h-[50px] w-[50px]"></span>
-          <span className="inline-block pt-[5px] text-[9px] text-black">
-            projects
-          </span>
-        </div>
-        <div className="m-[8px] flex h-[50px] w-[50px] cursor-pointer flex-col items-center">
-          <span className="w95-resume inline-block h-[50px] w-[50px]"></span>
-          <span className="inline-block pt-[5px] text-[9px] text-black">
-            myWebSite
-          </span>
-        </div>
+        {folderItems.map((folder, idx) => (
+          <Icon
+            key={idx}
+            iconNm={folder.iconNm}
+            contentKey={folder.contentKey}
+            iconImgNm={folder.iconImgNm}
+            textColor={folder.textColor}
+            isDoc={true}
+          />
+        ))}
       </div>
     </div>
   );

@@ -1,29 +1,42 @@
+import Icon from "../common/Icon";
 /**
  * [AboutMe window용 content 컴포넌트]
  */
 
 export default function AboutMeContent() {
+  const folderItems = [
+    {
+      iconNm: "Resume",
+      contentKey: "resume",
+      iconImgNm: "w95-resume",
+      textColor: "black",
+    },
+    {
+      iconNm: "Portfolio",
+      contentKey: "portfolio",
+      iconImgNm: "w95-resume",
+      textColor: "black",
+    },
+    {
+      iconNm: "Noname",
+      contentKey: "noname",
+      iconImgNm: "w95-closed-file",
+      textColor: "black",
+    },
+  ];
   return (
     <div className="folder-content">
       <div className="folder-box">
-        <div className="m-[8px] flex h-[50px] w-[50px] cursor-pointer flex-col items-center">
-          <span className="w95-resume inline-block h-[50px] w-[50px]"></span>
-          <span className="inline-block pt-[3px] text-[9px] text-black">
-            resume
-          </span>
-        </div>
-        <div className="m-[8px] flex h-[50px] w-[50px] cursor-pointer flex-col items-center">
-          <span className="w95-resume inline-block h-[50px] w-[50px]"></span>
-          <span className="inline-block pt-[5px] text-[9px] text-black">
-            portfolio
-          </span>
-        </div>
-        <div className="m-[8px] flex h-[50px] w-[50px] cursor-pointer flex-col items-center">
-          <span className="w95-closed-file inline-block h-[50px] w-[50px]"></span>
-          <span className="inline-block pt-[3px] text-[9px] text-black">
-            noname
-          </span>
-        </div>
+        {folderItems.map((folder, idx) => (
+          <Icon
+            key={idx}
+            iconNm={folder.iconNm}
+            contentKey={folder.contentKey}
+            iconImgNm={folder.iconImgNm}
+            textColor={folder.textColor}
+            isDoc={true}
+          />
+        ))}
       </div>
     </div>
   );

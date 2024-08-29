@@ -66,7 +66,7 @@ export default function Folders() {
     },
   ];
   return (
-    <div className="main absolute left-0 top-0 flex w-[190px] flex-wrap p-[10px]">
+    <div className="main absolute left-0 top-0 flex w-[170px] flex-wrap p-[10px]">
       {folderItems.map((folder, idx) => (
         <div key={idx} className="flex flex-col" style={{ flexBasis: "50%" }}>
           <Icon
@@ -74,6 +74,7 @@ export default function Folders() {
             contentKey={folder.contentKey}
             iconImgNm={folder.iconImgNm}
             textColor={folder.textColor}
+            isDoc={false}
           />
         </div>
       ))}

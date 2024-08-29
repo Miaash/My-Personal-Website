@@ -44,7 +44,7 @@ export default function NavBar() {
               onClick={() => toggleHide(window.id)}
             >
               <a
-                className={`nav-link ${window.isHide ? "opened" : ""}`}
+                className={`nav-link ${window.isHide ? "" : "opened"}`}
                 role="button"
               >
                 <span className="nav-link-inner-text">{window.title}</span>

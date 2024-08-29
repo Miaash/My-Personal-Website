@@ -13,6 +13,7 @@ interface windowsStateType {
   isShow: boolean;
   isSelected: boolean;
   isHide: boolean;
+  isDoc: boolean;
 }
 
 // store타입
@@ -24,6 +25,7 @@ interface windowsStateListType {
     isShow: boolean;
     isSelected: boolean;
     isHide: boolean;
+    isDoc: boolean;
   }) => void;
   removeWindow: (id: number) => void;
   toggleShow: (id: number) => void;
@@ -37,7 +39,7 @@ export const useWindowStore = create<windowsStateListType>((set) => ({
   windows: [],
   // window추가 action
   // TODO(20240822/완료) Window 중복 안되게 수정필요
-  addWindow: ({ title, contentKey, isShow, isSelected, isHide }) =>
+  addWindow: ({ title, contentKey, isShow, isSelected, isHide, isDoc }) =>
     set((state) => {
       // 추가하려는 window가 기존 windowList에 존재하는지
       const existingWindow = state.windows.find(
@@ -65,6 +67,7 @@ export const useWindowStore = create<windowsStateListType>((set) => ({
             title,
             isSelected,
             isHide,
+            isDoc,
           },
         ],
       };
