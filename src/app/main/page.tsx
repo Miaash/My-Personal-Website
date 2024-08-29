@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useWindowStore } from "@/store/store";
-import AlertModal from "@/components/modal/AlertModal";
-import DefaultWindow from "@/components/window/DefaultWindow";
+import FolderWindow from "@/components/window/FolderWindow";
+import Folders from "@/components/Folders";
 
 /**
  * [메인페이지]
@@ -17,14 +17,13 @@ export default function MainPage() {
     toggleSelected,
     toggleHide,
   } = useWindowStore();
-  // AlertModal 제어
-  const [isAlertShow, setIsAlertShow] = useState<boolean>(false);
 
   // TODO(20240822/완료) Welcome Window 두 건 생기는 부분 수정 -> store add action 중복안되도록
   // TODO(20240823/완료) isSelected가 true면 다른 windows보다 z-index 커야함.
-  // TODO(20240828/x) 폴더 컴포넌트 적용하기
-  // TODO(20240828/x) 폴더 클릭 시, 열린 폴더로 아이콘 변경.
+  // TODO(20240828/완료) 폴더 컴포넌트 적용하기
+  // TODO(20240829/완료) 아이콘, 공통 컴포넌트로 분리
   // TODO(20240828/x) 인터넷 클릭 시, window창 내부에 google띄우기
+  // TODO(20240829/x) 인트로 페이지 제작 필요
   useEffect(() => {
     addWindow({
       title: "Welcome",
@@ -37,132 +36,9 @@ export default function MainPage() {
 
   return (
     <>
-      <div className="main absolute left-0 top-0 flex flex-col p-[10px]">
-        <div
-          className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
-          onDoubleClick={() =>
-            addWindow({
-              title: "Projects",
-              contentKey: "projects",
-              isShow: true,
-              isSelected: true,
-              isHide: false,
-            })
-          }
-        >
-          {/* <span
-            className={`${porfolioWindow ? "w95-opened-file-full" : "w95-closed-file"} inline-block`}
-          ></span> */}
-          <span className="w95-closed-file inline-block"></span>
-          <span className="inline-block break-words pt-[5px] text-[8px] text-white">
-            Projects
-          </span>
-        </div>
-        {/* <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-opened-file-full h-35 w-35 inline-block"></span>
-          <span className="inline-block break-words pt-[3px] text-[8px] text-white">
-            portfolio-full
-          </span>
-        </div> */}
-        {/* <div className="h-35 w-35 mb-[13px] flex flex-col items-center cursor-pointer">
-        <span className="w95-opened-file-empty h-35 w-35 inline-block"></span>
-        <span className="inline-block pt-[3px] text-[8px] text-white">
-          portfolio-empty
-        </span>
-        </div> */}
-        <div
-          className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
-          onDoubleClick={() =>
-            addWindow({
-              title: "Recycle Bin",
-              contentKey: "recycleBin",
-              isShow: true,
-              isSelected: true,
-              isHide: false,
-            })
-          }
-        >
-          <span className="w95-bin-empty h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[3px] text-[8px] text-white">
-            Recycle Bin
-          </span>
-        </div>
-        {/* <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-bin-full h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[3px] text-[8px] text-white">
-            Recycle Bin full
-          </span>
-        </div> */}
-        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-computer h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[3px] text-[8px] text-white">
-            Computer
-          </span>
-        </div>
-        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-cd h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[3px] text-[8px] text-white">
-            music
-          </span>
-        </div>
-        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-internet h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[3px] text-[8px] text-white">
-            Internet
-          </span>
-        </div>
-      </div>
-      <div className="absolute left-[90px] top-0 flex flex-col p-[10px]">
-        <div
-          className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
-          onDoubleClick={() =>
-            addWindow({
-              title: "About Me",
-              contentKey: "aboutMe",
-              isShow: true,
-              isSelected: true,
-              isHide: false,
-            })
-          }
-        >
-          <span className="w95-me h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[1px] text-[8px] text-white">
-            About me
-          </span>
-        </div>
-        <div
-          className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center"
-          onDoubleClick={() =>
-            addWindow({
-              title: "Photos",
-              contentKey: "photos",
-              isShow: true,
-              isSelected: true,
-              isHide: false,
-            })
-          }
-        >
-          <span className="w95-camera h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[2px] text-[8px] text-white">
-            Photos
-          </span>
-        </div>
-        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-calendar h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[4px] text-[8px] text-white">
-            Calendar
-          </span>
-        </div>
-        <div className="h-35 w-35 mb-[13px] flex cursor-pointer flex-col items-center">
-          <span className="w95-paint h-35 w-35 inline-block"></span>
-          <span className="inline-block pt-[4px] text-[8px] text-white">
-            Paint
-          </span>
-        </div>
-      </div>
-      {/* windows */}
+      <Folders />
       {windows.map((window) => (
-        <DefaultWindow
+        <FolderWindow
           key={window.id}
           id={window.id}
           isShow={window.isShow}
@@ -176,14 +52,6 @@ export default function MainPage() {
           contentKey={window.contentKey}
         />
       ))}
-      {isAlertShow && (
-        <AlertModal
-          isShow={isAlertShow}
-          setIsShow={setIsAlertShow}
-          title="Notice!"
-          text="The minimum system requirements called for a 386DX processor, 4MB of RAM, and a 120MB hard drive."
-        />
-      )}
     </>
   );
 }

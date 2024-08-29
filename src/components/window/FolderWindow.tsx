@@ -6,13 +6,14 @@ import ProjectsContent from "../content/ProjectsContent";
 import RecycleBinContent from "../content/RecycleBinContent";
 import WelcomeContent from "../content/WelcomeContent";
 import PhotosContent from "../content/PhotosContent";
+
 /**
- * [DefaultWindow]
- * 기본 창으로 쓰이는 컴포넌트.
+ * [Folder Window]
+ * 폴더 창으로 쓰이는 컴포넌트.
  */
 
-// 기본윈도우컴포넌트타입
-interface DefaultWindowType {
+// 폴더윈도우컴포넌트타입
+interface FolderWindowPropsType {
   id: number;
   isShow: boolean;
   isSelected: boolean;
@@ -23,6 +24,7 @@ interface DefaultWindowType {
   onToggleHide: (id: number) => void;
   title: string;
   contentKey: string;
+  style?: React.CSSProperties;
 }
 
 interface SizePosition {
@@ -42,34 +44,35 @@ const contentComponents: Record<string, JSX.Element> = {
 };
 
 // contentKey에 대응하는 윈도우 사이즈 및 위치 매핑
+// TODO(20240827/완료) content component에 따른 size, position 조정
 const contentStyles: Record<string, SizePosition> = {
   welcome: {
-    width: "550px",
-    height: "660px",
-    left: "27%",
-    top: "8%",
+    width: "660px",
+    height: "550px",
+    left: "25%",
+    top: "15%",
   },
   projects: {
-    width: "500px",
-    height: "380px",
-    left: "10%",
+    width: "550px",
+    height: "300px",
+    left: "20%",
     top: "30%",
   },
   recycleBin: {
-    width: "500px",
-    height: "380px",
+    width: "550px",
+    height: "300px",
     left: "10%",
-    top: "30%",
+    top: "40%",
   },
   aboutMe: {
-    width: "500px",
-    height: "400px",
-    left: "10%",
-    top: "30%",
+    width: "550px",
+    height: "300px",
+    left: "50%",
+    top: "50%",
   },
   photos: {
-    width: "450px",
-    height: "380px",
+    width: "550px",
+    height: "300px",
     left: "20%",
     top: "8%",
   },
@@ -77,9 +80,9 @@ const contentStyles: Record<string, SizePosition> = {
 
 // TODO(20240822/완료) React Draggable 라이브러리로 드래그 기능 추가
 // TODO(20240827/완료) 윈도우 확대 기능 추가
-// TODO(20240827/x) content component에 따른 size, position 조정
 // TODO(20240827/x) 윈도우창 selected될때 클릭한 창만 z-Index 높게 설정 및 두창 모두 앞으로 오는 현상 수정필요
-export default function DefaultWindow({
+// TODO(20240828/x) window창 드래그 후, max하면 중앙 배치 안되는 부분 수정필요
+export default function FolderWindow({
   id,
   isShow,
   isSelected,
@@ -90,23 +93,22 @@ export default function DefaultWindow({
   onToggleHide,
   title,
   contentKey,
-}: DefaultWindowType) {
+}: FolderWindowPropsType) {
   const dragRef = useRef<HTMLDivElement>(null);
   const style = contentStyles[contentKey];
   const [isMaximized, setIsMaximized] = useState<boolean>(false);
 
   // window창 확대/최소화
-  // TODO(20240828/x) window창 드래그 후, max하면 중앙 배치 안되는 부분 수정필요
   const onMaximizeWindow = () => {
-    isMaximized ? setIsMaximized(false) : setIsMaximized(true);
+    setIsMaximized(!isMaximized);
   };
 
   return (
     <Draggable
       handle=".card-header"
       nodeRef={dragRef}
-      // bounds='body'
-      // disabled={isMaximized ? true : false}
+      // bounds="body"
+      // disabled={isMaximized}
     >
       <div
         ref={dragRef}
@@ -120,15 +122,18 @@ export default function DefaultWindow({
                 left: "0",
                 transform: "translate(0, 0)",
               }
-            : {}
+            : {
+                height: `${style.height}`,
+                width: `${style.width}`,
+                left: `${style.left}`,
+                top: `${style.top}`,
+              }
         }
-        className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${
-          isMaximized
-            ? "translate-x-0 translate-y-0"
-            : `left-[${style.left}] top-[${style.top}] h-[${style.height}] w-[${style.width}]`
-        } ${isSelected ? "z-[9999]" : "z-[1]"}`}
+        className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${`h-[${style.height}] w-[${style.width}]`} ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
-        <div className="card-header align-center flex w-full justify-between pl-[3px] text-left">
+        <div
+          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "" : "bg-[#A4A5A6]"}`}
+        >
           <span className="text-center text-[10px] text-white">{title}</span>
           <div>
             {/* 숨기기버튼 */}

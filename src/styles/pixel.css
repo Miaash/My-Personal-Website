@@ -45,6 +45,10 @@
   /* background-size: contain; */
 }
 
+.bg-light-white {
+  background-color: #ffffff !important;
+}
+
 a.bg-blue:hover,
 a.bg-blue:focus,
 button.bg-blue:hover,
@@ -3833,6 +3837,25 @@ button.section-black:focus {
 .close:hover span:not(.sr-only),
 .close:focus span:not(.sr-only) {
   background-color: transparent;
+}
+
+/* folder card */
+.folder-content {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 38px);
+}
+
+.folder-box {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-top: 2px solid #08080e;
+  border-left: 2px solid #08080e;
+  border-right: 2px solid #fcfcfc;
+  border-bottom: 2px solid #fcfcfc;
 }
 
 /**

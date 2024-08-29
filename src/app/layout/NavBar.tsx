@@ -21,7 +21,7 @@ export default function NavBar() {
   } = useWindowStore();
 
   return (
-    <footer className="z-100000 fixed bottom-0 left-0 w-full">
+    <footer className="z-1000000 fixed bottom-0 left-0 w-full">
       <nav
         id="navbar-footer"
         className="navbar navbar-main navbar-expand-lg navbar-dark justify-content-between navbar-footer flex items-center justify-between"

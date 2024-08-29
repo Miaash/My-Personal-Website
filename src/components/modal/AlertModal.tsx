@@ -9,7 +9,6 @@ interface AlertModalType {
  * [AlertModal 컴포넌트]
  * 알림 모달창 띄울 때 사용
  * 우선 순위가 가장 높은 창으로 OK혹은 Cancel버튼이 동작하지 않는 한, 창이 닫히지 않음.
- * @returns
  */
 export default function AlertModal({
   title,
