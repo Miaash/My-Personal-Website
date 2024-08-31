@@ -11,9 +11,15 @@ import { useStore } from "@/hooks/useStore";
  */
 export default function MainPage() {
   // store에서 state, action 가져오기
-  const { addWindow, removeWindow, toggleShow, toggleSelected, toggleHide } =
-    useWindowStore();
-  const windows = useStore(useWindowStore, (state) => state.windows);
+  const {
+    windows,
+    addWindow,
+    removeWindow,
+    toggleShow,
+    toggleSelected,
+    toggleHide,
+  } = useWindowStore();
+  // const windows = useStore(useWindowStore, (state) => state.windows);
 
   // TODO(20240822/완료) Welcome Window 두 건 생기는 부분 수정 -> store add action 중복안되도록
   // TODO(20240823/완료) isSelected가 true면 다른 windows보다 z-index 커야함.
