@@ -5,7 +5,7 @@
 export default function WelcomeContent() {
   return (
     <div className="w-full" style={{ height: `calc(100% - 38px)` }}>
-      <h1 className="text-title mt-[10px] pl-[20pxs]">
+      <h1 className="text-title mx-[10px] my-[20px] pl-[20pxs]">
         Welcome to My WebSite <span className="text-gray-100">2024</span>
       </h1>
       <div className="mt-[30px] flex h-full w-full justify-center">

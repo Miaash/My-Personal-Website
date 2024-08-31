@@ -70,8 +70,8 @@ export default function DocWindow({
                 transform: "translate(0, 0)",
               }
             : {
-                height: "660px",
-                width: "550px",
+                height: "550px",
+                width: "660px",
                 left: "25%",
                 top: "15%",
               }
@@ -79,7 +79,7 @@ export default function DocWindow({
         className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
-          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "" : "bg-[#A4A5A6]"}`}
+          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
           <span className="text-[10px] text-white">{title}</span>
           <div>
@@ -110,10 +110,10 @@ export default function DocWindow({
             </button>
           </div>
         </div>
-        <div className="card-body">
+        <div className="card-body doc">
           <div>{contentComponents[contentKey]}</div>
         </div>
-        <div className="card-footer">
+        {/* <div className="card-footer">
           <div className="card-footer-box">
             <p className="text-[13px] text-black">
               <span className="text-[9px] text-black">2</span>개체
@@ -125,7 +125,7 @@ export default function DocWindow({
               <span className="text-[9px] text-black">KB</span>
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </Draggable>
   );

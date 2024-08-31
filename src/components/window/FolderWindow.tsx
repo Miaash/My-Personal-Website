@@ -132,7 +132,7 @@ export default function FolderWindow({
         className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${`h-[${style.height}] w-[${style.width}]`} ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
-          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "" : "bg-[#A4A5A6]"}`}
+          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
           <span className="text-center text-[10px] text-white">{title}</span>
           <div>
