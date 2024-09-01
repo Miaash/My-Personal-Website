@@ -3877,7 +3877,9 @@ button.section-black:focus {
   flex: 1;
   height: calc(100% - 38px);
   width: 100%;
-  padding: 30px 80px;
+  align-items: center;
+  justify-content: center;
+  /* padding: 30px 80px 30px 100px; */
   background-color: #fcfcfc;
   border-top: 2px solid #08080e;
   border-left: 2px solid #08080e;
