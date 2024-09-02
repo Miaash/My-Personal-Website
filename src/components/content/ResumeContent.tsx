@@ -106,11 +106,11 @@ export default function ResumeContent() {
               </div>
             </div>
             {/* Career */}
-            <div className="mb-[60px] flex flex-col">
+            <div className="mb-[70px] flex flex-col">
               <div className="py-[20px] text-[25px] font-semibold text-[#347EA8]">
                 경력.
               </div>
-              <div className="mb-[40px]">
+              <div className="mb-[20px] border-b-[1px] pb-[30px]">
                 <div className="mb-[12px] flex h-[25px] items-center border-l-[3px] border-l-[#37352f] px-[15px] text-center text-[18px] font-semibold">
                   엘케이비티
                 </div>
@@ -132,18 +132,12 @@ export default function ResumeContent() {
                 <div className="pb-[5px] text-[15px] font-normal">
                   - Java, Mybatis를 학습해 RESTful API를 구현했습니다.
                 </div>
-                <div className="pb-[5px] text-[15px] font-normal">
+                <div className="text-[15px] font-normal">
                   - 사용자 UX를 고려한 UI 디자인 개선에 적극적으로 참여했습니다.
                 </div>
               </div>
-            </div>
-            {/* Projects */}
-            <div className="mb-[70px] flex flex-col">
-              <div className="py-[20px] text-[25px] font-semibold text-[#347EA8]">
-                프로젝트.
-              </div>
               <div className="mb-[40px]">
-                <div className="flex items-center py-[10px] text-center text-[20px]">
+                <div className="flex items-center py-[10px] text-center text-[17px] font-medium">
                   <FaCircle />
                   &nbsp;농산물 경매
                 </div>
@@ -189,7 +183,7 @@ export default function ResumeContent() {
                 </div>
               </div>
               <div className="mb-[40px]">
-                <div className="flex items-center py-[10px] text-center text-[20px]">
+                <div className="flex items-center py-[10px] text-center text-[17px] font-medium">
                   <FaCircle />
                   &nbsp;COSMAX 샘플 라이브러리 API 구축.
                 </div>
@@ -212,7 +206,7 @@ export default function ResumeContent() {
                 </div>
               </div>
               <div className="mb-[40px]">
-                <div className="flex items-center py-[10px] text-center text-[20px]">
+                <div className="flex items-center py-[10px] text-center text-[17px] font-medium">
                   <FaCircle />
                   &nbsp;농협 스마트 축산물 공판장
                 </div>
@@ -260,8 +254,15 @@ export default function ResumeContent() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Projects */}
+            <div className="mb-[70px] flex flex-col">
+              <div className="py-[20px] text-[25px] font-semibold text-[#347EA8]">
+                개인 프로젝트.
+              </div>
               <div className="mb-[40px]">
-                <div className="flex items-center py-[10px] text-center text-[20px]">
+                <div className="flex items-center py-[10px] text-center text-[17px] font-medium">
                   <FaCircle />
                   &nbsp;나의 웹사이트 제작
                 </div>
@@ -301,11 +302,12 @@ export default function ResumeContent() {
               {/* <div>소프트스킬</div> */}
               <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
                 <RxDotFilled />
-                &nbsp;<strong>React.js, Vue.js, Next.js</strong>, Vuex, Zustand
+                &nbsp;<strong>Vue.js, React.js, Next.js, TypeScript</strong>,
+                Vuex, Zustand
               </div>
               <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
                 <RxDotFilled />
-                &nbsp;Styled-components, Scss, Tailwind CSS
+                &nbsp;Tailwind CSS, Styled-components, SCSS
               </div>
               <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
                 <RxDotFilled />
