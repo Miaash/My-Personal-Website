@@ -25,8 +25,20 @@ export default function AboutMeContent() {
     },
   ];
   return (
-    <div className="folder-content">
-      <div className="folder-box">
+    <div
+      className="folder-content"
+      style={{
+        overflow: "hidden",
+      }}
+    >
+      <div
+        className="folder-box"
+        style={{
+          overflow: "hidden",
+          height: "100vh",
+          // position: "fixed",
+        }}
+      >
         {folderItems.map((folder, idx) => (
           <Icon
             key={idx}

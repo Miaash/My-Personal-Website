@@ -3,7 +3,7 @@
 /**
  * 폰트
  */
- @font-face {
+@font-face {
   font-family: "Windows 95";
   src:
     url("../../public/fonts/w-95-sans-serif.woff2") format("woff2"),
@@ -3806,13 +3806,13 @@ button.section-black:focus {
 
 .card-body {
   padding: 2px;
-  overflow-y: auto;
+  overflow: hidden;
   height: calc(100% - 62px);
 }
 
 .card-body.doc {
   padding: 2px;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   height: calc(100% - 30px);
 }
 
