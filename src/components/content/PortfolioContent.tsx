@@ -14,18 +14,18 @@ import { useState } from "react";
 
 export default function PortfoilioContent() {
   const portfolioSlides = [
-    "slide1.png",
-    "slide2.png",
-    "slide3.png",
-    "slide4.png",
-    "slide5.png",
-    "slide6.png",
-    "slide7.png",
-    "slide8.png",
-    "slide9.png",
-    "slide10.png",
-    "slide11.png",
-    "slide12.png",
+    "slide1.jpeg",
+    "slide2.jpeg",
+    "slide3.jpeg",
+    "slide4.jpeg",
+    "slide5.jpeg",
+    "slide6.jpeg",
+    "slide7.jpeg",
+    "slide8.jpeg",
+    "slide9.jpeg",
+    "slide10.jpeg",
+    "slide11.jpeg",
+    "slide12.jpeg",
   ];
   // const [numPages, setNumPages] = useState<number>();
   // const [pageNumber, setPageNumber] = useState<number>(1);
@@ -36,7 +36,7 @@ export default function PortfoilioContent() {
 
   return (
     <div>
-      <div className="folder-content flex-col items-center bg-[#FDFDF9]">
+      <div className="folder-content flex-col items-center bg-[#FDFDF9] pb-[100px]">
         {portfolioSlides.map((slide, idx) => (
           <div className="my-[50px]" key={idx}>
             <Image
