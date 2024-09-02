@@ -3,18 +3,21 @@
 /**
  * 폰트
  */
-@font-face {
+ @font-face {
   font-family: "Windows 95";
   src:
     url("../../public/fonts/w-95-sans-serif.woff2") format("woff2"),
     url("../../public/fonts/w-95-sans-serif.woff") format("woff");
+  /* url("../../public/fonts/DungGeunMo.woff2") format("woff2"),
+    url("../../public/fonts/DungGeunMo.woff") format("woff"); */
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Windows 95-ko";
-  src: url("../../public/fonts/gulim.woff") format("woff");
+  /* src: url("../../public/fonts/gulim.woff") format("woff"); */
+  src: url("../../public/fonts/DungGeunMo.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -3880,7 +3883,7 @@ button.section-black:focus {
   align-items: center;
   justify-content: center;
   /* padding: 30px 80px 30px 100px; */
-  background-color: #fcfcfc;
+  background-color: #fcfdf8;
   border-top: 2px solid #08080e;
   border-left: 2px solid #08080e;
   border-right: 2px solid #fcfcfc;
@@ -4416,68 +4419,68 @@ textarea[resize="horizontal"] {
 }
 
 .w95-closed-file {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-closed-file.png") center
     no-repeat;
   background-size: contain;
 }
 
 .w95-opened-file-empty {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-opened-file-empty.png") center
     no-repeat;
   background-size: contain;
 }
 
 .w95-opened-file-full {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-opened-file-full.png") center
     no-repeat;
   background-size: contain;
 }
 
 .w95-bin-empty {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-bin-empty.png") center
     no-repeat;
   background-size: contain;
 }
 
 .w95-bin-full {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-bin-full.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-computer {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-computer.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-internet {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-internet.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-cd {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-cd.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-resume {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-resume2.png") center no-repeat;
   background-size: contain;
 }
@@ -4489,44 +4492,51 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-ppt {
+  width: 40px;
+  height: 40px;
+  background: url("../../public/images/w95-icons-ppt.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-me {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-me.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-camera {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-camera.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-calendar {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-calendar.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-paint {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-paint.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-note {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-note.png") center no-repeat;
   background-size: contain;
 }
 
 .w95-my-web {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-my-web.png") center no-repeat;
   background-size: contain;
 }
@@ -4582,8 +4592,8 @@ textarea[resize="horizontal"] {
 }
 
 .w95-tip {
-  width: 11px;
-  height: 11px;
+  width: 40px;
+  height: 40px;
   background: url("../../public/images/w95-icons-tip.png") center no-repeat;
   background-size: contain;
 }

@@ -9,6 +9,8 @@ import { useRef, useState } from "react";
  * 전체화면이 default 크기
  */
 
+// TODO(20240902/x) 윈도우 헤더에 아이콘 넣기
+
 interface DocWindowPropsType {
   id: number;
   isShow: boolean;

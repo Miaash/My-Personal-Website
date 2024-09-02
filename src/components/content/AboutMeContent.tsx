@@ -12,9 +12,9 @@ export default function AboutMeContent() {
       textColor: "black",
     },
     {
-      iconNm: "Portfolio",
+      iconNm: "Miasoft PowerPoint - Portfolio",
       contentKey: "portfolio",
-      iconImgNm: "w95-resume",
+      iconImgNm: "w95-ppt",
       textColor: "black",
     },
     {

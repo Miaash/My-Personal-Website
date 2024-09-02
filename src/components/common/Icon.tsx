@@ -23,7 +23,7 @@ export default function Icon({
   const { addWindow } = useWindowStore();
   return (
     <div
-      className="h-35 w-35 mb-[16px] mr-[17px] flex cursor-pointer flex-col items-center"
+      className="mb-[20px] mr-[17px] flex h-full w-[60px] cursor-pointer flex-col items-center"
       onDoubleClick={() =>
         addWindow({
           title: iconNm,
@@ -35,8 +35,10 @@ export default function Icon({
         })
       }
     >
-      <span className={`${iconImgNm} h-35 w-35 inline-block`}></span>
-      <span className={`inline-block pt-[5px] text-[8px] text-${textColor}`}>
+      <span className={`${iconImgNm} inline-block h-[60px] w-[60px]`}></span>
+      <span
+        className={`inline-block w-[60px] pt-[5px] text-center text-[10px] text-${textColor}`}
+      >
         {iconNm}
       </span>
     </div>
