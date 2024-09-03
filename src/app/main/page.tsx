@@ -1,10 +1,12 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useWindowStore } from "@/store/store";
 import FolderWindow from "@/components/window/FolderWindow";
 import Folders from "@/components/Folders";
 import DocWindow from "@/components/window/DocWindow";
 import { useStore } from "@/hooks/useStore";
+import WelcomeWindow from "@/components/window/WelcomeWindow";
+import { WindowType } from "@/types/window";
 
 /**
  * [메인페이지]
@@ -21,6 +23,12 @@ export default function MainPage() {
   } = useWindowStore();
   // const windows = useStore(useWindowStore, (state) => state.windows);
 
+  const [currentContentKey, setCurrentContentKey] = useState<string>("");
+
+  const handleFolderClick = (contentKey: string) => {
+    setCurrentContentKey(contentKey);
+  };
+
   // TODO(20240822/완료) Welcome Window 두 건 생기는 부분 수정 -> store add action 중복안되도록
   // TODO(20240823/완료) isSelected가 true면 다른 windows보다 z-index 커야함.
   // TODO(20240828/완료) 폴더 컴포넌트 적용하기
@@ -34,7 +42,7 @@ export default function MainPage() {
       isShow: true,
       isSelected: true,
       isHide: false,
-      isDoc: false,
+      windowType: "notice",
     });
   }, []);
 
@@ -44,43 +52,173 @@ export default function MainPage() {
   }
 
   return (
+    // <>
+    //   <Folders />
+    //   {/* welcome 윈도우 */}
+    //   {windows.length > 0 && (
+    //     <>
+    //       {windows.map(
+    //         (window) =>
+    //           window.contentKey === "welcome" && (
+    //             <WelcomeWindow
+    //               key={window.id}
+    //               id={window.id}
+    //               isShow={window.isShow}
+    //               isSelected={window.isSelected}
+    //               isHide={window.isSelected}
+    //               onToggleShow={() => toggleShow(window.id)}
+    //               onToggleSelected={() => toggleSelected(window.id)}
+    //               onToggleClose={() => removeWindow(window.id)}
+    //               onToggleHide={() => toggleHide(window.id)}
+    //             />
+    //           ),
+    //       )}
+    //     </>
+    //   )}
+
+    //   {/* 폴더타입 윈도우 */}
+    //   {windows.length > 0 && (
+    //     <>
+    //       {windows.map(
+    //         (window) =>
+    //           window.windowType === "folder" && (
+    //             <FolderWindow
+    //               key={window.id}
+    //               id={window.id}
+    //               isShow={window.isShow}
+    //               isSelected={window.isSelected}
+    //               isHide={window.isSelected}
+    //               onToggleShow={() => toggleShow(window.id)}
+    //               onToggleSelected={() => toggleSelected(window.id)}
+    //               onToggleClose={() => removeWindow(window.id)}
+    //               onToggleHide={() => toggleHide(window.id)}
+    //               title={window.title}
+    //               contentKey={window.contentKey}
+    //               windowType={window.windowType}
+    //             />
+    //           ),
+    //       )}
+    //     </>
+    //   )}
+
+    //   {/* 폴더타입 윈도우 */}
+    //   {windows.length > 0 && (
+    //     <>
+    //       {windows.map(
+    //         (window) =>
+    //           window.windowType === "folder" && (
+    //             <FolderWindow
+    //               key={window.id}
+    //               id={window.id}
+    //               isShow={false}
+    //               isSelected={window.isSelected}
+    //               isHide={window.isSelected}
+    //               onToggleShow={() => toggleShow(window.id)}
+    //               onToggleSelected={() => toggleSelected(window.id)}
+    //               onToggleClose={() => removeWindow(window.id)}
+    //               onToggleHide={() => toggleHide(window.id)}
+    //               title={window.title}
+    //               contentKey={window.contentKey}
+    //               windowType={window.windowType}
+    //             />
+    //           ),
+    //       )}
+    //     </>
+    //   )}
+
+    //   {/* 문서타입 윈도우 */}
+    //   {windows.length > 0 && (
+    //     <>
+    //       {windows.map(
+    //         (window) =>
+    //           window.windowType === "doc" && (
+    //             <DocWindow
+    //               key={window.id}
+    //               id={window.id}
+    //               isShow={window.isShow}
+    //               isSelected={window.isSelected}
+    //               isHide={window.isSelected}
+    //               onToggleShow={() => toggleShow(window.id)}
+    //               onToggleSelected={() => toggleSelected(window.id)}
+    //               onToggleClose={() => removeWindow(window.id)}
+    //               onToggleHide={() => toggleHide(window.id)}
+    //               title={window.title}
+    //               contentKey={window.contentKey}
+    //             />
+    //           ),
+    //       )}
+    //     </>
+    //   )}
+    // </>
     <>
       <Folders />
-      {windows.length > 0 && (
-        <>
-          {windows.map((window) =>
-            window.isDoc ? (
-              <DocWindow
-                key={window.id}
-                id={window.id}
-                isShow={window.isShow}
-                isSelected={window.isSelected}
-                isHide={window.isSelected}
-                onToggleShow={() => toggleShow(window.id)}
-                onToggleSelected={() => toggleSelected(window.id)}
-                onToggleClose={() => removeWindow(window.id)}
-                onToggleHide={() => toggleHide(window.id)}
-                title={window.title}
-                contentKey={window.contentKey}
-              />
-            ) : (
-              <FolderWindow
-                key={window.id}
-                id={window.id}
-                isShow={window.isShow}
-                isSelected={window.isSelected}
-                isHide={window.isSelected}
-                onToggleShow={() => toggleShow(window.id)}
-                onToggleSelected={() => toggleSelected(window.id)}
-                onToggleClose={() => removeWindow(window.id)}
-                onToggleHide={() => toggleHide(window.id)}
-                title={window.title}
-                contentKey={window.contentKey}
-              />
-            ),
-          )}
-        </>
-      )}
+
+      {windows.map((window) => {
+        // Render FolderWindow for "folder" type and "childFolder" type
+        if (
+          window.windowType === "folder" ||
+          window.windowType === "childFolder"
+        ) {
+          return (
+            <FolderWindow
+              key={window.id}
+              id={window.id}
+              isShow={window.isShow}
+              isSelected={window.isSelected}
+              isHide={window.isHide}
+              onToggleShow={() => toggleShow(window.id)}
+              onToggleSelected={() => toggleSelected(window.id)}
+              onToggleClose={() => removeWindow(window.id)}
+              onToggleHide={() => toggleHide(window.id)}
+              title={window.title}
+              contentKey={
+                window.windowType === "childFolder"
+                  ? currentContentKey // Use currentContentKey for childFolder
+                  : window.contentKey // Otherwise use the contentKey of the window
+              }
+              windowType={window.windowType as WindowType} // Type assertion for windowType
+              onFolderClick={handleFolderClick}
+            />
+          );
+        }
+
+        if (window.windowType === "doc") {
+          return (
+            <DocWindow
+              key={window.id}
+              id={window.id}
+              isShow={window.isShow}
+              isSelected={window.isSelected}
+              isHide={window.isHide}
+              onToggleShow={() => toggleShow(window.id)}
+              onToggleSelected={() => toggleSelected(window.id)}
+              onToggleClose={() => removeWindow(window.id)}
+              onToggleHide={() => toggleHide(window.id)}
+              title={window.title}
+              contentKey={window.contentKey}
+            />
+          );
+        }
+
+        if (window.windowType === "notice") {
+          return (
+            <WelcomeWindow
+              key={window.id}
+              id={window.id}
+              isShow={window.isShow}
+              isSelected={window.isSelected}
+              isHide={window.isHide}
+              onToggleShow={() => toggleShow(window.id)}
+              onToggleSelected={() => toggleSelected(window.id)}
+              onToggleClose={() => removeWindow(window.id)}
+              onToggleHide={() => toggleHide(window.id)}
+            />
+          );
+        }
+
+        // Optionally, handle other types (e.g., "notice") or return null if not handled
+        return null;
+      })}
     </>
   );
 }

@@ -3,7 +3,7 @@ import { FaCircle } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
 
 /**
- * [Resume window용 content 컴포넌트]
+ * [Resume window용 doc 컴포넌트]
  */
 
 // TODO(20240827/완료) 이력서 페이지 추가
@@ -14,7 +14,7 @@ const notoSans = Noto_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-export default function ResumeContent() {
+export default function ResumeDoc() {
   return (
     <div className={notoSans.className}>
       <div className="folder-content">

@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-secondary">
+      <body className="bg-secondary overflow-hidden">
         {children}
         <NavBar />
       </body>

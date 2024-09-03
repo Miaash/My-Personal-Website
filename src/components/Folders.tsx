@@ -1,3 +1,4 @@
+import { WindowType } from "@/types/window";
 import Icon from "./common/Icon";
 
 /**
@@ -9,60 +10,75 @@ import Icon from "./common/Icon";
 // TODO(20240829/완료) 폴더 아이콘들 중복 코드 정리
 export default function Folders() {
   // 폴더아이템 배열
-  const folderItems = [
+  const folderItems: {
+    iconNm: string;
+    contentKey: string;
+    iconImgNm: string;
+    textColor: string;
+    windowType: WindowType;
+  }[] = [
     {
       iconNm: "Projects",
       contentKey: "projects",
       iconImgNm: "w95-closed-file",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Recycle Bin",
       contentKey: "recycleBin",
       iconImgNm: "w95-bin-empty",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Computer",
       contentKey: "computer",
       iconImgNm: "w95-computer",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Music",
       contentKey: "music",
       iconImgNm: "w95-cd",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Internet",
       contentKey: "internet",
       iconImgNm: "w95-internet",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "About Me",
       contentKey: "aboutMe",
       iconImgNm: "w95-me",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Photos",
       contentKey: "photos",
       iconImgNm: "w95-camera",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Calendar",
       contentKey: "calendar",
       iconImgNm: "w95-calendar",
       textColor: "white",
+      windowType: "folder",
     },
     {
       iconNm: "Paint",
       contentKey: "paint",
       iconImgNm: "w95-paint",
       textColor: "white",
+      windowType: "folder",
     },
   ];
   return (
@@ -74,7 +90,7 @@ export default function Folders() {
             contentKey={folder.contentKey}
             iconImgNm={folder.iconImgNm}
             textColor={folder.textColor}
-            isDoc={false}
+            windowType={folder.windowType}
           />
         </div>
       ))}

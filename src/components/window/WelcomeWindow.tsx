@@ -1,17 +1,14 @@
-import Draggable from "react-draggable";
-import MyWebSiteDoc from "../doc/MyWebSiteDoc";
-import PortfoilioDoc from "../doc/PortfolioDoc";
-import ResumeDoc from "../doc/ResumeDoc";
+"use client";
 import { useRef, useState } from "react";
+import Draggable from "react-draggable";
+
 /**
- * [Doc Window]
- * 문서용 윈도우로 쓰이는 컴포넌트.
- * 전체화면이 default 크기
+ * [Welcome Window]
+ * 환영윈도우
  */
 
-// TODO(20240902/x) 윈도우 헤더에 아이콘 넣기
-
-interface DocWindowPropsType {
+// 폴더윈도우컴포넌트타입
+interface FolderWindowPropsType {
   id: number;
   isShow: boolean;
   isSelected: boolean;
@@ -20,19 +17,12 @@ interface DocWindowPropsType {
   onToggleClose: (id: number) => void;
   onToggleSelected: (id: number) => void;
   onToggleHide: (id: number) => void;
-  title: string;
-  contentKey: string;
-  style?: React.CSSProperties;
+  //   title: string;
+  //   contentKey: string;
+  //   style?: React.CSSProperties;
 }
 
-// contentKey에 대응하는 컴포넌트 매핑
-const contentComponents: Record<string, JSX.Element> = {
-  resume: <ResumeDoc />,
-  portfolio: <PortfoilioDoc />,
-  myWebSite: <MyWebSiteDoc />,
-};
-
-export default function DocWindow({
+export default function WelcomeWindow({
   id,
   isShow,
   isSelected,
@@ -41,11 +31,11 @@ export default function DocWindow({
   onToggleClose,
   onToggleSelected,
   onToggleHide,
-  title,
-  contentKey,
-}: DocWindowPropsType) {
+  //   title,
+  //   contentKey,
+}: FolderWindowPropsType) {
   const dragRef = useRef<HTMLDivElement>(null);
-  const [isMaximized, setIsMaximized] = useState<boolean>(true);
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
 
   // window창 확대/최소화
   const onMaximizeWindow = () => {
@@ -78,12 +68,12 @@ export default function DocWindow({
                 top: "15%",
               }
         }
-        className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${isSelected ? "z-[9999]" : "z-[1]"}`}
+        className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} h-[550px] w-[660px] ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
           className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
-          <span className="text-[10px] text-white">{title}</span>
+          <span className="text-center text-[10px] text-white">Welcome</span>
           <div>
             {/* 숨기기버튼 */}
             <button
@@ -112,22 +102,35 @@ export default function DocWindow({
             </button>
           </div>
         </div>
-        <div className="card-body doc">
-          <div>{contentComponents[contentKey]}</div>
+        {/* widowcontents */}
+        <div className="card-body">
+          <div className="w-full" style={{ height: `calc(100% - 38px)` }}>
+            <div className="my-[10px] pl-[20px] text-[23px]">
+              제 사이트에 와주셔서 감사합니다.
+              {/* Welcome to My Website. */}
+              {/* <span className="text-gray-100">2024</span> */}
+            </div>
+            <div className="mt-[30px] flex h-full w-full justify-center">
+              <div className="bg-light-yellow flex h-full w-full flex-col justify-center p-[30px]">
+                <div className="flex items-center justify-center">
+                  <span className="w95-tip mr-[10px] mt-[10px] inline-block"></span>
+                  <p className="inline-block text-center text-[20px]">
+                    참고해주세요
+                  </p>
+                </div>
+                <div className="mt-[20px] flex flex-col items-center justify-center text-[12px]">
+                  <p className="text-[15px]">
+                    {/* To open a program, you just click the Start button, and then click
+              the program&apos;s icon.  */}
+                    프로그램을 실행하시려면, 시작버튼 또는 화면의 아이콘을
+                    클릭하세요.
+                  </p>
+                  <span className="w95-img-computer inline-block"></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        {/* <div className="card-footer">
-          <div className="card-footer-box">
-            <p className="text-[13px] text-black">
-              <span className="text-[9px] text-black">2</span>개체
-            </p>
-          </div>
-          <div className="card-footer-box">
-            <p className="text-[13px] text-black">
-              <span className="text-[9px] text-black">234</span>
-              <span className="text-[9px] text-black">KB</span>
-            </p>
-          </div>
-        </div> */}
       </div>
     </Draggable>
   );

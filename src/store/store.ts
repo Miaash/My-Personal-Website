@@ -1,49 +1,29 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { WindowStore } from "../types/window";
 
 /**
  * [전역상태관리 store]
  *  활성화된 Window창 상태관리
  */
 
-// window상태 Type
-interface windowsStateType {
-  id: number;
-  title: string;
-  contentKey: string;
-  isShow: boolean;
-  isSelected: boolean;
-  isHide: boolean;
-  isDoc: boolean;
-}
-
-// store타입
-interface windowsStateListType {
-  windows: windowsStateType[];
-  addWindow: (newWindow: {
-    title: string;
-    contentKey: string;
-    isShow: boolean;
-    isSelected: boolean;
-    isHide: boolean;
-    isDoc: boolean;
-  }) => void;
-  removeWindow: (id: number) => void;
-  toggleShow: (id: number) => void;
-  toggleSelected: (id: number) => void;
-  toggleHide: (id: number) => void;
-}
-
 // store생성.
 // TODO(20240830/완료ㄴ) session storage 저장
-export const useWindowStore = create<windowsStateListType>()(
+export const useWindowStore = create<WindowStore>()(
   // persist(
   (set) => ({
     // 활성화된 window 리스트
     windows: [],
     // window추가 action
     // TODO(20240822/완료) Window 중복 안되게 수정필요
-    addWindow: ({ title, contentKey, isShow, isSelected, isHide, isDoc }) =>
+    addWindow: ({
+      title,
+      contentKey,
+      isShow,
+      isSelected,
+      isHide,
+      windowType,
+    }) =>
       set((state) => {
         // 추가하려는 window가 기존 windowList에 존재하는지
         const existingWindow = state.windows.find(
@@ -71,7 +51,7 @@ export const useWindowStore = create<windowsStateListType>()(
               title,
               isSelected,
               isHide,
-              isDoc,
+              windowType,
             },
           ],
         };

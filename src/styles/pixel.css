@@ -4493,8 +4493,8 @@ textarea[resize="horizontal"] {
 }
 
 .w95-ppt {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   background: url("../../public/images/w95-icons-ppt.png") center no-repeat;
   background-size: contain;
 }
@@ -4531,6 +4531,13 @@ textarea[resize="horizontal"] {
   width: 40px;
   height: 40px;
   background: url("../../public/images/w95-icons-note.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-photo {
+  width: 40px;
+  height: 40px;
+  background: url("../../public/images/w95-icons-photo.png") center no-repeat;
   background-size: contain;
 }
 
