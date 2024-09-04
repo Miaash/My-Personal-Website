@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
-import { FolderItemsType, InfoType, WindowType } from "@/types/window";
+import { useWindowStore } from "@/store/store";
+import { FolderItemsType, WindowType } from "@/types/window";
 import { contentInfo } from "@/constants/windowData";
 import Draggable from "react-draggable";
 import FolderContainer from "../container/FolderContainer";
@@ -22,12 +23,13 @@ interface FolderWindowPropsType {
   onToggleClose: (id: number) => void;
   onToggleSelected: (id: number) => void;
   onToggleHide: (id: number) => void;
-  title?: string;
-  contentKey?: string;
-  style?: React.CSSProperties;
-  windowType?: WindowType;
-  onFolderClick: (contentKey: string) => void;
-  folderItems?: FolderItemsType[];
+  title: string;
+  contentKey: string;
+  // style: React.CSSProperties;
+  windowType: WindowType;
+  // onFolderClick: (contentKey: string) => void;
+  folderItems: FolderItemsType[];
+  // initialFolderItems: FolderItemsType[];
 }
 
 // contentKey에 대응하는 컴포넌트 매핑
@@ -66,19 +68,36 @@ export default function FolderWindow({
   title,
   contentKey,
   windowType,
-  onFolderClick,
+  // onFolderClick,
   folderItems,
+  // initialFolderItems,
 }: FolderWindowPropsType) {
+  const { windows } = useWindowStore();
   const dragRef = useRef<HTMLDivElement>(null);
   const style = contentInfo[contentKey];
   const [isMaximized, setIsMaximized] = useState<boolean>(false);
-  const [currentContentKey, setCurrentContentKey] =
-    useState<string>(contentKey);
+  // const [currentContentKey, setCurrentContentKey] = useState<string>(
+  //   contentKey!,
+  // );
+  // const [childFolderInfo, setChildFolderInfo] =
+  //   useState<FolderItemsType[]>(initialFolderItems);
 
   // window창 확대/최소화
   const onMaximizeWindow = () => {
     setIsMaximized(!isMaximized);
   };
+
+  // const handleFolderClick = (newContentKey: string) => {
+  //   const selectedContent = contentInfo[newContentKey];
+
+  //   console.log(newContentKey);
+
+  //   if (selectedContent.windowType === "childFolder") {
+  //     setChildFolderInfo(selectedContent.folderItems || []);
+  //   } else {
+  //     setCurrentContentKey(newContentKey);
+  //   }
+  // };
 
   // 폴더 클릭 시 내용 업데이트
   // const handleFolderClick = (contentKey: string) => {
@@ -135,22 +154,22 @@ export default function FolderWindow({
                 transform: "translate(0, 0)",
               }
             : {
-                height: `${style?.height}`,
-                width: `${style?.width}`,
-                left: `${style?.left}`,
-                top: `${style?.top}`,
+                // height: `${style.height}`,
+                // width: `${style.width}`,
+                // left: `${style.left}`,
+                // top: `${style.top}`,
+                height: "300px",
+                width: "550px",
+                left: "10%",
+                top: "40%",
               }
         }
-        className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${`h-[${style?.height}] w-[${style?.width}]`} ${isSelected ? "z-[9999]" : "z-[1]"}`}
+        className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} h-[300px] w-[550px] ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
           className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
-          <span className="text-center text-[10px] text-white">
-            {windowType === "childFolder"
-              ? `${currentContentKey}/${title}`
-              : title}
-          </span>
+          <span className="text-center text-[10px] text-white">{title}</span>
           <div>
             {/* 숨기기버튼 */}
             <button
@@ -191,14 +210,14 @@ export default function FolderWindow({
           )} */}
           <FolderContainer
             folderItems={folderItems}
-            onFolderClick={onFolderClick}
+            // onFolderClick={handleFolderClick}
           />
         </div>
         <div className="card-footer">
           <div className="card-footer-box">
             <p className="text-[13px] text-black">
               <span className="mr-[2px] text-[9px] text-black">
-                {/* {contentInfo[contentKey].folderItems.length} */}
+                {folderItems.length}
               </span>
               <span className="text-[9px] text-black">items</span>
             </p>

@@ -1,4 +1,4 @@
-import { WindowType } from "@/types/window";
+import { FolderItemsType } from "@/types/window";
 import Icon from "../common/Icon";
 
 /**
@@ -7,22 +7,27 @@ import Icon from "../common/Icon";
  */
 
 interface FolderContainerPropsType {
-  folderItems?: FolderItemType[];
-  onFolderClick: (contentKey: string) => void;
+  folderItems: FolderItemsType[];
+  // onFolderClick: (contentKey: string) => void;
 }
 
-interface FolderItemType {
-  iconNm: string;
-  contentKey: string;
-  iconImgNm: string;
-  textColor: string;
-  windowType: WindowType;
-  parentFolderKey: string;
-}
+// interface FolderItemType {
+//   iconNm: string;
+//   contentKey: string;
+//   iconImgNm: string;
+//   textColor: string;
+//   windowType: WindowType;
+//   folderItems: FolderItemType[];
+//   width: string;
+//   height: string;
+//   left: string;
+//   top: string;
+//   // parentFolderKey: string;
+// }
 
 export default function FolderContainer({
   folderItems,
-  onFolderClick,
+  // onFolderClick,
 }: FolderContainerPropsType) {
   return (
     <div className="folder-content">
@@ -33,8 +38,8 @@ export default function FolderContainer({
           height: "100vh",
         }}
       >
-        {folderItems?.length > 0 ? (
-          folderItems?.map((folder, idx) => (
+        {folderItems.length > 0 ? (
+          folderItems.map((folder, idx) => (
             <div key={idx}>
               <Icon
                 iconNm={folder.iconNm}
@@ -42,8 +47,13 @@ export default function FolderContainer({
                 iconImgNm={folder.iconImgNm}
                 textColor={folder.textColor}
                 windowType={folder.windowType}
-                onFolderClick={onFolderClick}
-                parentFolderKey={folder.parentFolderKey}
+                folderItems={folder.folderItems}
+                width={folder.width}
+                height={folder.height}
+                left={folder.left}
+                top={folder.top}
+                // onFolderClick={onFolderClick}
+                // parentFolderKey={folder.parentFolderKey}
               />
             </div>
           ))

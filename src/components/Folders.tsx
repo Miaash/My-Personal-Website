@@ -7,13 +7,13 @@ import { contentInfo } from "@/constants/windowData";
  * MainPage에 나열되는 폴더 아이콘 모음 컴포넌트
  */
 
-interface FolderPropsType {
-  onFolderClick: (contentKey: string) => void;
-}
+// interface FolderPropsType {
+//   onFolderClick: (contentKey: string) => void;
+// }
 
 // TODO(20240828/x) 폴더 클릭 시, 열린 폴더로 아이콘 변경.
 // TODO(20240829/완료) 폴더 아이콘들 중복 코드 정리
-export default function Folders({ onFolderClick }: FolderPropsType) {
+export default function Folders() {
   // 폴더아이템 배열
   // 1. Object.keys(contentInfo) => contentInfo의 모든 키를 배열로 반환
   // 2. map으로 키에 해당하는 아이템 하나씩 반환.
@@ -25,7 +25,8 @@ export default function Folders({ onFolderClick }: FolderPropsType) {
       iconImgNm: item.iconImgNm,
       textColor: item.textColor,
       windowType: item.windowType as WindowType,
-      parentFolderKey: item.parentFolderKey,
+      folderItems: item.folderItems,
+      // parentFolderKey: item.parentFolderKey,
     };
   });
 
@@ -39,8 +40,9 @@ export default function Folders({ onFolderClick }: FolderPropsType) {
             iconImgNm={folder.iconImgNm}
             textColor={folder.textColor}
             windowType={folder.windowType}
-            onFolderClick={onFolderClick}
-            parentFolderKey={folder.parentFolderKey}
+            folderItems={folder.folderItems}
+            // onFolderClick={onFolderClick}
+            // parentFolderKey={folder.parentFolderKey}
           />
         </div>
       ))}

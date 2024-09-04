@@ -17,6 +17,10 @@ export const useWindowStore = create<WindowStore>()(
     // window추가 action
     // TODO(20240822/완료) Window 중복 안되게 수정필요
     addWindow: ({
+      width,
+      height,
+      left,
+      top,
       title,
       contentKey,
       isShow,
@@ -24,7 +28,6 @@ export const useWindowStore = create<WindowStore>()(
       isHide,
       windowType,
       folderItems,
-      parentFolderKey,
     }) =>
       set((state) => {
         // 추가하려는 window가 기존 windowList에 존재하는지
@@ -48,6 +51,10 @@ export const useWindowStore = create<WindowStore>()(
             ...state.windows,
             {
               id: state.windows.length + 1,
+              width,
+              height,
+              left,
+              top,
               contentKey,
               isShow,
               title,
@@ -55,7 +62,6 @@ export const useWindowStore = create<WindowStore>()(
               isHide,
               windowType,
               folderItems,
-              parentFolderKey,
             },
           ],
         };

@@ -1,6 +1,6 @@
 import { contentInfo } from "@/constants/windowData";
 import { useWindowStore } from "@/store/store";
-import { WindowType } from "@/types/window";
+import { FolderItemsType, WindowType } from "@/types/window";
 /**
  * [아이콘 컴포넌트]
  */
@@ -11,8 +11,13 @@ interface IconPropsType {
   iconImgNm: string;
   textColor: string;
   windowType: WindowType;
-  onFolderClick: (contentKey: string) => void;
-  parentFolderKey: string;
+  // onFolderClick: (contentKey: string) => void;
+  // parentFolderKey: string;
+  folderItems: FolderItemsType[];
+  width: string;
+  height: string;
+  left: string;
+  top: string;
 }
 
 export default function Icon({
@@ -21,38 +26,31 @@ export default function Icon({
   iconImgNm,
   textColor,
   windowType,
-  onFolderClick,
-  parentFolderKey,
+  // onFolderClick,
+  folderItems,
+  // parentFolderKey,
+  width,
+  height,
+  left,
+  top,
 }: IconPropsType) {
   // 전역상태관리 state, action
   const { addWindow } = useWindowStore();
   const handleDoubleClick = () => {
-    if (windowType === "childFolder") {
-      onFolderClick(contentKey);
-    } else if (windowType === "folder") {
-      onFolderClick(contentKey);
-      addWindow({
-        title: iconNm,
-        contentKey: contentKey,
-        isShow: true,
-        isSelected: true,
-        isHide: false,
-        windowType: windowType,
-        folderItems: contentInfo[contentKey].folderItems,
-        parentFolderKey: parentFolderKey,
-      });
-    } else {
-      addWindow({
-        title: iconNm,
-        contentKey: contentKey,
-        isShow: true,
-        isSelected: true,
-        isHide: false,
-        windowType: windowType,
-        folderItems: [],
-        parentFolderKey: parentFolderKey,
-      });
-    }
+    addWindow({
+      title: iconNm,
+      contentKey: contentKey,
+      isShow: true,
+      isSelected: true,
+      isHide: false,
+      windowType: windowType,
+      folderItems: folderItems,
+      width: width,
+      height: height,
+      left: left,
+      top: top,
+      // parentFolderKey: parentFolderKey,
+    });
   };
   return (
     <div

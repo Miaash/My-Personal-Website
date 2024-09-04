@@ -10,8 +10,12 @@ export interface FolderItemsType {
   iconImgNm: string;
   textColor: string;
   windowType: WindowType;
-  folderItems?: FolderItemsType[]; // 없는 경우도 있음
-  parentFolderKey: string;
+  folderItems: FolderItemsType[]; // 없는 경우도 있음
+  width: string;
+  height: string;
+  left: string;
+  top: string;
+  // parentFolderKey: string;
 }
 
 // window - folder, doc 타입
@@ -26,7 +30,7 @@ export interface InfoType {
   textColor: string;
   windowType: WindowType;
   folderItems: FolderItemsType[];
-  parentFolderKey: string;
+  // parentFolderKey: string;
 }
 
 // window 상태 타입
@@ -39,7 +43,11 @@ export interface WindowState {
   isHide: boolean;
   windowType: WindowType;
   folderItems: FolderItemsType[];
-  parentFolderKey: string;
+  width: string;
+  height: string;
+  left: string;
+  top: string;
+  // parentFolderKey: string;
 }
 
 export interface WindowStore {
