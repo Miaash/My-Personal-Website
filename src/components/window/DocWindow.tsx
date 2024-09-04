@@ -3,6 +3,7 @@ import MyWebSiteDoc from "../doc/MyWebSiteDoc";
 import PortfoilioDoc from "../doc/PortfolioDoc";
 import ResumeDoc from "../doc/ResumeDoc";
 import { useRef, useState } from "react";
+import InternetDoc from "../doc/InternetDoc";
 /**
  * [Doc Window]
  * 문서용 윈도우로 쓰이는 컴포넌트.
@@ -30,6 +31,7 @@ const contentComponents: Record<string, JSX.Element> = {
   resume: <ResumeDoc />,
   portfolio: <PortfoilioDoc />,
   myWebSite: <MyWebSiteDoc />,
+  internet: <InternetDoc />,
 };
 
 export default function DocWindow({

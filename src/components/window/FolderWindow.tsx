@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
-import { WindowType } from "@/types/window";
+import { FolderItemsType, InfoType, WindowType } from "@/types/window";
 import { contentInfo } from "@/constants/windowData";
 import Draggable from "react-draggable";
 import FolderContainer from "../container/FolderContainer";
@@ -22,145 +22,13 @@ interface FolderWindowPropsType {
   onToggleClose: (id: number) => void;
   onToggleSelected: (id: number) => void;
   onToggleHide: (id: number) => void;
-  title: string;
-  contentKey: string;
+  title?: string;
+  contentKey?: string;
   style?: React.CSSProperties;
-  windowType: WindowType;
+  windowType?: WindowType;
   onFolderClick: (contentKey: string) => void;
+  folderItems?: FolderItemsType[];
 }
-
-// contentKey에 대응하는 윈도우 사이즈 및 위치 매핑
-// TODO(20240827/완료) content component에 따른 size, position 조정
-// const contentInfo: Record<string, InfoType> = {
-//   projects: {
-//     width: "550px",
-//     height: "300px",
-//     left: "20%",
-//     top: "30%",
-//     folderItems: [
-//       {
-//         iconNm: "MyWebSite",
-//         contentKey: "myWebSite",
-//         iconImgNm: "w95-resume",
-//         textColor: "black",
-//         windowType: "doc",
-//       },
-//     ],
-//   },
-//   computer: {
-//     width: "550px",
-//     height: "300px",
-//     left: "10%",
-//     top: "40%",
-//     folderItems: [],
-//   },
-//   music: {
-//     width: "550px",
-//     height: "300px",
-//     left: "10%",
-//     top: "40%",
-//     folderItems: [],
-//   },
-//   recycleBin: {
-//     width: "550px",
-//     height: "300px",
-//     left: "10%",
-//     top: "40%",
-//     folderItems: [],
-//   },
-//   aboutMe: {
-//     width: "550px",
-//     height: "300px",
-//     left: "50%",
-//     top: "50%",
-//     folderItems: [
-//       {
-//         iconNm: "Resume",
-//         contentKey: "resume",
-//         iconImgNm: "w95-resume",
-//         textColor: "black",
-//         windowType: "doc",
-//       },
-//       {
-//         iconNm: "Miasoft PowerPoint - Portfolio",
-//         contentKey: "portfolio",
-//         iconImgNm: "w95-ppt",
-//         textColor: "black",
-//         windowType: "doc",
-//       },
-//       {
-//         iconNm: "Noname",
-//         contentKey: "noname",
-//         iconImgNm: "w95-closed-file",
-//         textColor: "black",
-//         windowType: "childFolder",
-//         folderItems: [],
-//       },
-//     ],
-//   },
-//   photos: {
-//     width: "550px",
-//     height: "300px",
-//     left: "20%",
-//     top: "8%",
-//     folderItems: [
-//       {
-//         iconNm: "2022",
-//         contentKey: "2022",
-//         iconImgNm: "w95-closed-file",
-//         textColor: "black",
-//         windowType: "childFolder",
-//         folderItems: [
-//           {
-//             iconNm: "1",
-//             contentKey: "1",
-//             iconImgNm: "w95-photo",
-//             textColor: "black",
-//             windowType: "doc",
-//           },
-//         ],
-//       },
-//       {
-//         iconNm: "2023",
-//         contentKey: "2023",
-//         iconImgNm: "w95-closed-file",
-//         textColor: "black",
-//         windowType: "childFolder",
-//         folderItems: [
-//           {
-//             iconNm: "1",
-//             contentKey: "1",
-//             iconImgNm: "w95-photo",
-//             textColor: "black",
-//             windowType: "doc",
-//           },
-//           {
-//             iconNm: "2",
-//             contentKey: "2",
-//             iconImgNm: "w95-photo",
-//             textColor: "black",
-//             windowType: "doc",
-//           },
-//           {
-//             iconNm: "3",
-//             contentKey: "3",
-//             iconImgNm: "w95-photo",
-//             textColor: "black",
-//             windowType: "doc",
-//           },
-//         ],
-//       },
-//       {
-//         iconNm: "2024",
-//         contentKey: "2024",
-//         iconImgNm: "w95-closed-file",
-//         textColor: "black",
-//         windowType: "childFolder",
-//         folderItems: [],
-//       },
-//     ],
-//   },
-// };
 
 // contentKey에 대응하는 컴포넌트 매핑
 // const folderContainer: Record<string, JSX.Element> = {
@@ -180,6 +48,7 @@ interface FolderWindowPropsType {
 // };
 
 // TODO(20240822/완료) React Draggable 라이브러리로 드래그 기능 추가
+// TODO(20240827/완료) content component에 따른 size, position 조정
 // TODO(20240827/완료) 윈도우 확대 기능 추가
 // TODO(20240827/x) 윈도우창 selected될때 클릭한 창만 z-Index 높게 설정 및 두창 모두 앞으로 오는 현상 수정필요
 // TODO(20240828/x) window창 드래그 후, max하면 중앙 배치 안되는 부분 수정필요
@@ -197,6 +66,8 @@ export default function FolderWindow({
   title,
   contentKey,
   windowType,
+  onFolderClick,
+  folderItems,
 }: FolderWindowPropsType) {
   const dragRef = useRef<HTMLDivElement>(null);
   const style = contentInfo[contentKey];
@@ -210,25 +81,39 @@ export default function FolderWindow({
   };
 
   // 폴더 클릭 시 내용 업데이트
-  const handleFolderClick = (contentKey: string) => {
-    setCurrentContentKey(contentKey);
-    console.log(currentContentKey);
-  };
+  // const handleFolderClick = (contentKey: string) => {
+  //   // if (contentInfo[contentKey].windowType === "folder") {
+  //   //   setCurrentContentKey(contentKey);
+  //   //   console.log("상위폴더", currentContentKey);
+  //   //   console.log("현재폴더", contentKey);
+  //   //   console.log("상위폴더 folderItems :", contentInfo[currentContentKey]);
+  //   //   console.log("현재폴더의 folderItems :", contentInfo[contentKey]);
+  //   // } else {
+  //   // }
+  //   setCurrentContentKey(contentKey);
+  //   console.log("상위폴더", currentContentKey);
+  //   console.log("현재폴더", contentKey);
+  //   console.log(
+  //     "상위폴더 folderItems :",
+  //     contentInfo[currentContentKey].folderItems,
+  //   );
+  //   console.log("현재폴더의 folderItems :", contentInfo[contentKey]);
+  // };
 
   // 현재 열려있는 폴더의 내용을 반환
-  const getFolderContent = (contentKey: string) => {
-    const handleFolderClick = (newContentKey: string) => {
-      setCurrentContentKey(newContentKey);
-    };
-    console.log(currentContentKey);
+  // const getFolderContent = (contentKey: string) => {
+  //   const handleFolderClick = (newContentKey: string) => {
+  //     setCurrentContentKey(newContentKey);
+  //   };
+  //   // console.log(currentContentKey);
 
-    return (
-      <FolderContainer
-        folderItems={contentInfo[contentKey].folderItems}
-        onFolderClick={handleFolderClick} // onFolderClick 이벤트 핸들러 추가
-      />
-    );
-  };
+  //   return (
+  //     <FolderContainer
+  //       folderItems={contentInfo[contentKey].folderItems}
+  //       onFolderClick={handleFolderClick} // onFolderClick 이벤트 핸들러 추가
+  //     />
+  //   );
+  // };
 
   return (
     <Draggable
@@ -305,24 +190,24 @@ export default function FolderWindow({
             />
           )} */}
           <FolderContainer
-            folderItems={contentInfo[contentKey]?.folderItems || []}
-            onFolderClick={handleFolderClick}
+            folderItems={folderItems}
+            onFolderClick={onFolderClick}
           />
         </div>
         <div className="card-footer">
           <div className="card-footer-box">
             <p className="text-[13px] text-black">
-              <span className="text-[9px] text-black">
-                {contentInfo[contentKey].folderItems.length}
+              <span className="mr-[2px] text-[9px] text-black">
+                {/* {contentInfo[contentKey].folderItems.length} */}
               </span>
-              <span className="text-[13px] text-black">개체</span>
+              <span className="text-[9px] text-black">items</span>
             </p>
           </div>
           <div className="card-footer-box">
-            <p className="text-[13px] text-black">
+            {/* <p className="text-[13px] text-black">
               <span className="text-[9px] text-black">234</span>
               <span className="text-[9px] text-black">KB</span>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

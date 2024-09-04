@@ -23,6 +23,8 @@ export const useWindowStore = create<WindowStore>()(
       isSelected,
       isHide,
       windowType,
+      folderItems,
+      parentFolderKey,
     }) =>
       set((state) => {
         // 추가하려는 window가 기존 windowList에 존재하는지
@@ -52,6 +54,8 @@ export const useWindowStore = create<WindowStore>()(
               isSelected,
               isHide,
               windowType,
+              folderItems,
+              parentFolderKey,
             },
           ],
         };

@@ -1,3 +1,4 @@
+import { contentInfo } from "@/constants/windowData";
 import { useWindowStore } from "@/store/store";
 import { WindowType } from "@/types/window";
 /**
@@ -10,7 +11,8 @@ interface IconPropsType {
   iconImgNm: string;
   textColor: string;
   windowType: WindowType;
-  onFolderClick?: (contentKey: string) => void;
+  onFolderClick: (contentKey: string) => void;
+  parentFolderKey: string;
 }
 
 export default function Icon({
@@ -20,12 +22,25 @@ export default function Icon({
   textColor,
   windowType,
   onFolderClick,
+  parentFolderKey,
 }: IconPropsType) {
   // 전역상태관리 state, action
   const { addWindow } = useWindowStore();
   const handleDoubleClick = () => {
-    if (windowType === "childFolder" && onFolderClick) {
+    if (windowType === "childFolder") {
       onFolderClick(contentKey);
+    } else if (windowType === "folder") {
+      onFolderClick(contentKey);
+      addWindow({
+        title: iconNm,
+        contentKey: contentKey,
+        isShow: true,
+        isSelected: true,
+        isHide: false,
+        windowType: windowType,
+        folderItems: contentInfo[contentKey].folderItems,
+        parentFolderKey: parentFolderKey,
+      });
     } else {
       addWindow({
         title: iconNm,
@@ -34,6 +49,8 @@ export default function Icon({
         isSelected: true,
         isHide: false,
         windowType: windowType,
+        folderItems: [],
+        parentFolderKey: parentFolderKey,
       });
     }
   };

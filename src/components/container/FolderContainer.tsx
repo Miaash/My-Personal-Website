@@ -7,16 +7,17 @@ import Icon from "../common/Icon";
  */
 
 interface FolderContainerPropsType {
-  folderItems: FolderItemsType[];
+  folderItems?: FolderItemType[];
   onFolderClick: (contentKey: string) => void;
 }
 
-interface FolderItemsType {
+interface FolderItemType {
   iconNm: string;
   contentKey: string;
   iconImgNm: string;
   textColor: string;
   windowType: WindowType;
+  parentFolderKey: string;
 }
 
 export default function FolderContainer({
@@ -32,8 +33,8 @@ export default function FolderContainer({
           height: "100vh",
         }}
       >
-        {folderItems.length > 0 ? (
-          folderItems.map((folder, idx) => (
+        {folderItems?.length > 0 ? (
+          folderItems?.map((folder, idx) => (
             <div key={idx}>
               <Icon
                 iconNm={folder.iconNm}
@@ -42,6 +43,7 @@ export default function FolderContainer({
                 textColor={folder.textColor}
                 windowType={folder.windowType}
                 onFolderClick={onFolderClick}
+                parentFolderKey={folder.parentFolderKey}
               />
             </div>
           ))
