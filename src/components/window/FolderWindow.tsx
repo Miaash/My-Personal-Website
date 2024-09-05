@@ -10,7 +10,7 @@ import FolderContainer from "../container/FolderContainer";
  * 폴더 창으로 쓰이는 컴포넌트.
  */
 
-// TODO(20240902/x) 윈도우 헤더에 아이콘 넣기
+// TODO(20240902/완료) 윈도우 헤더에 아이콘 넣기
 
 // 폴더윈도우컴포넌트타입
 interface FolderWindowPropsType {
