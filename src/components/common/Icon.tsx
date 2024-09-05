@@ -16,8 +16,6 @@ interface IconPropsType {
   folderItems: FolderItemsType[];
   width: string;
   height: string;
-  left: string;
-  top: string;
 }
 
 export default function Icon({
@@ -31,8 +29,6 @@ export default function Icon({
   // parentFolderKey,
   width,
   height,
-  left,
-  top,
 }: IconPropsType) {
   // 전역상태관리 state, action
   const { addWindow } = useWindowStore();
@@ -47,8 +43,6 @@ export default function Icon({
       folderItems: folderItems,
       width: width,
       height: height,
-      left: left,
-      top: top,
       // parentFolderKey: parentFolderKey,
     });
   };

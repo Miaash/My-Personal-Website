@@ -2,7 +2,7 @@ import Draggable from "react-draggable";
 import MyWebSiteDoc from "../doc/MyWebSiteDoc";
 import PortfoilioDoc from "../doc/PortfolioDoc";
 import ResumeDoc from "../doc/ResumeDoc";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import InternetDoc from "../doc/InternetDoc";
 /**
  * [Doc Window]
@@ -33,6 +33,13 @@ const contentComponents: Record<string, JSX.Element> = {
   myWebSite: <MyWebSiteDoc />,
   internet: <InternetDoc />,
 };
+const contentKeyIcon: Record<string, string> = {
+  resume: "w95-resume-small",
+  portfolio: "w95-portfolio-small",
+  myWebSite: "w95-resume-small",
+  internet: "w95-internet-small",
+  photo: "w95-photo-small",
+};
 
 export default function DocWindow({
   id,
@@ -48,11 +55,24 @@ export default function DocWindow({
 }: DocWindowPropsType) {
   const dragRef = useRef<HTMLDivElement>(null);
   const [isMaximized, setIsMaximized] = useState<boolean>(true);
+  const [randomPosition, setRandomPosition] = useState<{
+    top: string;
+    left: string;
+  }>({
+    top: "40%",
+    left: "10%",
+  });
 
   // window창 확대/최소화
   const onMaximizeWindow = () => {
     setIsMaximized(!isMaximized);
   };
+
+  useEffect(() => {
+    const randomTop = `${Math.floor(Math.random() * 50)}%`;
+    const randomLeft = `${Math.floor(Math.random() * 50)}%`;
+    setRandomPosition({ top: randomTop, left: randomLeft });
+  }, [isShow]);
 
   return (
     <Draggable
@@ -76,16 +96,23 @@ export default function DocWindow({
             : {
                 height: "550px",
                 width: "660px",
-                left: "25%",
-                top: "15%",
+                left: `${randomPosition.left}`,
+                top: `${randomPosition.top}`,
               }
         }
         className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
-          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
+          className={`card-header flex w-full items-center justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
-          <span className="text-[10px] text-white">{title}</span>
+          <div className="relative w-[70%] items-center">
+            <span
+              className={`${contentKeyIcon[contentKey]} absolute top-[-7px] inline-block`}
+            ></span>
+            <span className="absolute left-[20px] top-[-6px] text-[10px] text-white">
+              {title}
+            </span>
+          </div>
           <div>
             {/* 숨기기버튼 */}
             <button
@@ -117,19 +144,6 @@ export default function DocWindow({
         <div className="card-body doc">
           <div>{contentComponents[contentKey]}</div>
         </div>
-        {/* <div className="card-footer">
-          <div className="card-footer-box">
-            <p className="text-[13px] text-black">
-              <span className="text-[9px] text-black">2</span>개체
-            </p>
-          </div>
-          <div className="card-footer-box">
-            <p className="text-[13px] text-black">
-              <span className="text-[9px] text-black">234</span>
-              <span className="text-[9px] text-black">KB</span>
-            </p>
-          </div>
-        </div> */}
       </div>
     </Draggable>
   );

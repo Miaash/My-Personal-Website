@@ -1,8 +1,7 @@
 "use client";
-import { useRef, useState } from "react";
-import { useWindowStore } from "@/store/store";
+import { useEffect, useRef, useState } from "react";
+// import { useWindowStore } from "@/store/store";
 import { FolderItemsType, WindowType } from "@/types/window";
-import { contentInfo } from "@/constants/windowData";
 import Draggable from "react-draggable";
 import FolderContainer from "../container/FolderContainer";
 
@@ -55,7 +54,23 @@ interface FolderWindowPropsType {
 // TODO(20240827/x) 윈도우창 selected될때 클릭한 창만 z-Index 높게 설정 및 두창 모두 앞으로 오는 현상 수정필요
 // TODO(20240828/x) window창 드래그 후, max하면 중앙 배치 안되는 부분 수정필요
 // TODO(20240903/완료) Footer수정
-// TODO(20240903/x) window타입 === childFolder의 경우 화면 전환 필요
+// TODO(20240903/완료) window타입 === childFolder의 경우 화면 전환 필요 ==> 여기서 새창 add로 전환.
+
+const contentKeyIcon: Record<string, string> = {
+  projects: "w95-opened-file-empty-small",
+  noname: "w95-opened-file-empty-small",
+  2022: "w95-opened-file-empty-small",
+  2023: "w95-opened-file-empty-small",
+  2024: "w95-opened-file-empty-small",
+  computer: "w95-computer-small",
+  music: "w95-cd-small",
+  recycleBin: "w95-bin-empty-small",
+  aboutMe: "w95-me-small",
+  calendar: "w95-calendar-small ",
+  photos: "w95-camera-small",
+  paint: "w95-paint-small",
+};
+
 export default function FolderWindow({
   id,
   isShow,
@@ -72,10 +87,16 @@ export default function FolderWindow({
   folderItems,
   // initialFolderItems,
 }: FolderWindowPropsType) {
-  const { windows } = useWindowStore();
+  // const { windows } = useWindowStore();
   const dragRef = useRef<HTMLDivElement>(null);
-  const style = contentInfo[contentKey];
   const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [randomPosition, setRandomPosition] = useState<{
+    top: string;
+    left: string;
+  }>({
+    top: "40%",
+    left: "10%",
+  });
   // const [currentContentKey, setCurrentContentKey] = useState<string>(
   //   contentKey!,
   // );
@@ -86,7 +107,6 @@ export default function FolderWindow({
   const onMaximizeWindow = () => {
     setIsMaximized(!isMaximized);
   };
-
   // const handleFolderClick = (newContentKey: string) => {
   //   const selectedContent = contentInfo[newContentKey];
 
@@ -134,6 +154,12 @@ export default function FolderWindow({
   //   );
   // };
 
+  useEffect(() => {
+    const randomTop = `${Math.floor(Math.random() * 50)}%`;
+    const randomLeft = `${Math.floor(Math.random() * 50)}%`;
+    setRandomPosition({ top: randomTop, left: randomLeft });
+  }, [isShow]);
+
   return (
     <Draggable
       handle=".card-header"
@@ -154,22 +180,25 @@ export default function FolderWindow({
                 transform: "translate(0, 0)",
               }
             : {
-                // height: `${style.height}`,
-                // width: `${style.width}`,
-                // left: `${style.left}`,
-                // top: `${style.top}`,
                 height: "300px",
                 width: "550px",
-                left: "10%",
-                top: "40%",
+                left: `${randomPosition.left}`,
+                top: `${randomPosition.top}`,
               }
         }
         className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} h-[300px] w-[550px] ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
-          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
+          className={`card-header flex w-full items-center justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
-          <span className="text-center text-[10px] text-white">{title}</span>
+          <div className="relative w-[70%] items-center">
+            <span
+              className={`${contentKeyIcon[contentKey]} absolute top-[-7px] inline-block`}
+            ></span>
+            <span className="absolute left-[20px] top-[-6px] text-[10px] text-white">
+              {title}
+            </span>
+          </div>
           <div>
             {/* 숨기기버튼 */}
             <button

@@ -11,20 +11,6 @@ interface FolderContainerPropsType {
   // onFolderClick: (contentKey: string) => void;
 }
 
-// interface FolderItemType {
-//   iconNm: string;
-//   contentKey: string;
-//   iconImgNm: string;
-//   textColor: string;
-//   windowType: WindowType;
-//   folderItems: FolderItemType[];
-//   width: string;
-//   height: string;
-//   left: string;
-//   top: string;
-//   // parentFolderKey: string;
-// }
-
 export default function FolderContainer({
   folderItems,
   // onFolderClick,
@@ -50,8 +36,6 @@ export default function FolderContainer({
                 folderItems={folder.folderItems}
                 width={folder.width}
                 height={folder.height}
-                left={folder.left}
-                top={folder.top}
                 // onFolderClick={onFolderClick}
                 // parentFolderKey={folder.parentFolderKey}
               />

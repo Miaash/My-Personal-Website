@@ -4,7 +4,7 @@ import { useWindowStore } from "@/store/store";
 import FolderWindow from "@/components/window/FolderWindow";
 import Folders from "@/components/Folders";
 import DocWindow from "@/components/window/DocWindow";
-import { useStore } from "@/hooks/useStore";
+// import { useStore } from "@/hooks/useStore";
 import WelcomeWindow from "@/components/window/WelcomeWindow";
 
 /**
@@ -81,8 +81,6 @@ export default function MainPage() {
       // parentFolderKey: "",
       width: "",
       height: "",
-      left: "",
-      top: "",
     });
   }, []);
 
@@ -174,8 +172,11 @@ export default function MainPage() {
           );
         }
 
-        // Optionally, handle other types (e.g., "notice") or return null if not handled
-        return null;
+        return (
+          <div key={window.id}>
+            화면을 렌더링하는 도중 에러가 발생했습니다. 관리자에게 문의하세요
+          </div>
+        );
       })}
     </>
   );

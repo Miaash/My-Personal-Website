@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+// import { persist } from "zustand/middleware";
 import { WindowStore } from "../types/window";
 
 /**
@@ -8,7 +8,7 @@ import { WindowStore } from "../types/window";
  */
 
 // store생성.
-// TODO(20240830/완료ㄴ) session storage 저장
+// TODO(20240830/완료) session storage 저장
 export const useWindowStore = create<WindowStore>()(
   // persist(
   (set) => ({
@@ -19,8 +19,6 @@ export const useWindowStore = create<WindowStore>()(
     addWindow: ({
       width,
       height,
-      left,
-      top,
       title,
       contentKey,
       isShow,
@@ -53,8 +51,6 @@ export const useWindowStore = create<WindowStore>()(
               id: state.windows.length + 1,
               width,
               height,
-              left,
-              top,
               contentKey,
               isShow,
               title,

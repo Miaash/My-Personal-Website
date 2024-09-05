@@ -26,6 +26,8 @@ export default function Folders() {
       textColor: item.textColor,
       windowType: item.windowType as WindowType,
       folderItems: item.folderItems,
+      width: item.width,
+      height: item.height,
       // parentFolderKey: item.parentFolderKey,
     };
   });
@@ -41,6 +43,8 @@ export default function Folders() {
             textColor={folder.textColor}
             windowType={folder.windowType}
             folderItems={folder.folderItems}
+            width={folder.width}
+            height={folder.height}
             // onFolderClick={onFolderClick}
             // parentFolderKey={folder.parentFolderKey}
           />

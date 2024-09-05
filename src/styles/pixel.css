@@ -4433,6 +4433,13 @@ textarea[resize="horizontal"] {
     no-repeat;
   background-size: contain;
 }
+.w95-opened-file-empty-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-opened-file-empty.png") center
+    no-repeat;
+  background-size: contain;
+}
 
 .w95-opened-file-full {
   width: 40px;
@@ -4445,6 +4452,14 @@ textarea[resize="horizontal"] {
 .w95-bin-empty {
   width: 40px;
   height: 40px;
+  background: url("../../public/images/w95-icons-bin-empty.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-bin-empty-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-bin-empty.png") center
     no-repeat;
   background-size: contain;
@@ -4464,9 +4479,23 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-computer-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-computer.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-internet {
   width: 40px;
   height: 40px;
+  background: url("../../public/images/w95-icons-internet.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-internet-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-internet.png") center no-repeat;
   background-size: contain;
 }
@@ -4478,6 +4507,13 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-cd-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-cd.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-resume {
   width: 40px;
   height: 40px;
@@ -4485,16 +4521,23 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
-.w95-resume.small {
-  width: 15px;
-  height: 15px;
+.w95-resume-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-resume2.png") center no-repeat;
   background-size: contain;
 }
 
-.w95-ppt {
+.w95-portfolio {
   width: 42px;
   height: 42px;
+  background: url("../../public/images/w95-icons-ppt.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-portfolio-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-ppt.png") center no-repeat;
   background-size: contain;
 }
@@ -4506,9 +4549,30 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-me-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-me.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-me-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-me.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-camera {
   width: 40px;
   height: 40px;
+  background: url("../../public/images/w95-icons-camera.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-camera-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-camera.png") center no-repeat;
   background-size: contain;
 }
@@ -4520,9 +4584,22 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-calendar-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-calendar.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-paint {
   width: 40px;
   height: 40px;
+  background: url("../../public/images/w95-icons-paint.png") center no-repeat;
+  background-size: contain;
+}
+.w95-paint-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-paint.png") center no-repeat;
   background-size: contain;
 }
@@ -4537,6 +4614,13 @@ textarea[resize="horizontal"] {
 .w95-photo {
   width: 40px;
   height: 40px;
+  background: url("../../public/images/w95-icons-photo.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-photo-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-photo.png") center no-repeat;
   background-size: contain;
 }

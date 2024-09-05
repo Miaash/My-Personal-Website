@@ -3,7 +3,7 @@
  */
 export type WindowType = "folder" | "doc" | "childFolder" | "notice";
 
-// window - folder 타입의 child로 들어가는 아이템 타입
+// window - folder, doc 타입
 export interface FolderItemsType {
   iconNm: string;
   contentKey: string;
@@ -13,23 +13,6 @@ export interface FolderItemsType {
   folderItems: FolderItemsType[]; // 없는 경우도 있음
   width: string;
   height: string;
-  left: string;
-  top: string;
-  // parentFolderKey: string;
-}
-
-// window - folder, doc 타입
-export interface InfoType {
-  width: string;
-  height: string;
-  left: string;
-  top: string;
-  iconNm: string;
-  contentKey: string;
-  iconImgNm: string;
-  textColor: string;
-  windowType: WindowType;
-  folderItems: FolderItemsType[];
   // parentFolderKey: string;
 }
 
@@ -45,8 +28,6 @@ export interface WindowState {
   folderItems: FolderItemsType[];
   width: string;
   height: string;
-  left: string;
-  top: string;
   // parentFolderKey: string;
 }
 
