@@ -108,7 +108,7 @@ export default function WelcomeWindow({
           </div>
         </div>
         {/* widowcontents */}
-        <div className="card-body">
+        <div className="card-body info">
           <div className="w-full" style={{ height: `calc(100% - 38px)` }}>
             <div className="pl-[20px] text-[20px]">
               제 사이트에 방문해주셔서 감사합니다.

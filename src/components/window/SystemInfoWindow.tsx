@@ -36,10 +36,31 @@ export default function SystemInfoWindow({
 }: SystemInfoPropsType) {
   const dragRef = useRef<HTMLDivElement>(null);
   const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [tabValue, setTabValue] = useState<number>(1);
+
+  const tabArr = [
+    {
+      id: 1,
+      name: "버전 정보",
+    },
+    {
+      id: 2,
+      name: "관리자 정보",
+    },
+    {
+      id: 3,
+      name: "기타 정보",
+    },
+  ];
 
   // window창 확대/최소화
   const onMaximizeWindow = () => {
     setIsMaximized(!isMaximized);
+  };
+
+  // 탭버튼 클릭
+  const handleTabClick = (v: number) => {
+    setTabValue(v);
   };
 
   return (
@@ -62,10 +83,10 @@ export default function SystemInfoWindow({
                 transform: "translate(0, 0)",
               }
             : {
-                height: "550px",
-                width: "660px",
-                left: "25%",
-                top: "15%",
+                height: "350px",
+                width: "550px",
+                left: "35%",
+                top: "20%",
               }
         }
         className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} h-[550px] w-[660px] ${isSelected ? "z-[9999]" : "z-[1]"}`}
@@ -89,7 +110,7 @@ export default function SystemInfoWindow({
               <span className="w95-btn-hide absolute left-[0px] top-[3px]"></span>
             </button>
             {/* 확대버튼/최소화 버튼 */}
-            <button
+            {/* <button
               className="btn-control relative mr-2 p-0"
               type="button"
               onClick={() => onMaximizeWindow()}
@@ -97,7 +118,7 @@ export default function SystemInfoWindow({
               <span
                 className={`${isMaximized ? "w95-btn-min" : "w95-btn-max"} absolute left-[1px] top-[1px]`}
               ></span>
-            </button>
+            </button> */}
             {/* 닫기버튼 */}
             <button
               className="btn-control relative mr-[3px] p-0"
@@ -108,121 +129,70 @@ export default function SystemInfoWindow({
           </div>
         </div>
         {/* widowcontents */}
-        <div className="card-body">
-          <div className="w-full" style={{ height: `calc(100% - 38px)` }}>
-            <div className="flex flex-col">
-              <ul className="nav nav-tabs flex" id="myTab" role="tablist">
-                <li className="nav-item">
-                  <a
-                    className="nav-link active"
-                    id="home-tab"
-                    data-toggle="tab"
-                    // href="../#home"
-                    role="tab"
-                    aria-controls="home"
-                    aria-selected="true"
+        <div className="card-body info">
+          <div
+            className="h-full w-full p-[5px]"
+            // style={{ height: `calc(100% - 38px)` }}
+          >
+            <div className="flex h-full flex-col">
+              {/* tab buttons */}
+              <ul className="nav nav-tabs flex">
+                {tabArr.map((tab) => (
+                  <li
+                    key={tab.id}
+                    className={`nav-item ${tabValue === tab.id ? "active" : ""}`}
+                    onClick={() => handleTabClick(tab.id)}
                   >
-                    Programs
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    id="profile-tab"
-                    data-toggle="tab"
-                    // href="../#profile"
-                    role="tab"
-                    aria-controls="profile"
-                    aria-selected="false"
-                  >
-                    Control Panel
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    id="contact-tab"
-                    data-toggle="tab"
-                    // href="../#contact"
-                    role="tab"
-                    aria-controls="contact"
-                    aria-selected="false"
-                  >
-                    Documents
-                  </a>
-                </li>
+                    <span className="nav-text">{tab.name}</span>
+                    {/* {tab.name} */}
+                  </li>
+                ))}
               </ul>
+              {/* tab contents */}
               <div className="tab-content" id="myTabContent">
-                <div
-                  className="tab-pane show active"
-                  id="home"
-                  role="tabpanel"
-                  aria-labelledby="home-tab"
-                >
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Soluta voluptatem nam ut temporibus corporis dolorem dolores
-                    accusamus deserunt veniam eius maiores suscipit veritatis
-                    necessitatibus voluptatum incidunt repellendus eligendi,
-                    consequatur rem?
-                  </p>
-                  <button
-                    className="btn btn-sm btn-primary border-dark mr-2"
-                    type="button"
+                {tabValue === 1 && (
+                  <div
+                    className="tab-pane show active"
+                    id="home"
+                    role="tabpanel"
+                    aria-labelledby="home-tab"
                   >
-                    <span className="btn-text">Show Other Options</span>
-                  </button>
-                </div>
-                {/* <div
-                  className="tab-pane"
-                  id="profile"
-                  role="tabpanel"
-                  aria-labelledby="profile-tab"
-                >
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Consequatur earum consequuntur accusamus reprehenderit quae
-                    sint, quia eligendi sed quidem neque omnis odit suscipit
-                    dolorum corrupti minima quas temporibus recusandae vel.
-                  </p>
-                  <button
-                    className="btn btn-sm btn-secondary border-dark mr-2"
-                    type="button"
+                    <p>버전 정보</p>
+                  </div>
+                )}
+                {tabValue === 2 && (
+                  <div
+                    className="tab-pane"
+                    id="profile"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
                   >
-                    <span className="btn-text">Show Other Options</span>
-                  </button>
-                </div> */}
-                {/* <div
-                  className="tab-pane"
-                  id="contact"
-                  role="tabpanel"
-                  aria-labelledby="contact-tab"
-                >
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea
-                    ad tempora, quam quisquam, neque possimus ducimus eligendi
-                    cumque ipsum autem nam magnam atque, ipsam sint inventore
-                    repellat iste sunt harum!
-                  </p>
-                  <button
-                    className="btn btn-sm btn-tertiary border-dark mr-2"
-                    type="button"
+                    <p>관리자 정보</p>
+                  </div>
+                )}
+                {tabValue === 3 && (
+                  <div
+                    className="tab-pane"
+                    id="contact"
+                    role="tabpanel"
+                    aria-labelledby="contact-tab"
                   >
-                    <span className="btn-text">Show Other Options</span>
-                  </button>
-                </div> */}
+                    <p>기타</p>
+                  </div>
+                )}
               </div>
             </div>
 
+            {/* 확인/닫기버튼 */}
             {/* <div className="d-flex justify-content-end mt-3">
               <button
-                className="btn btn-sm btn-primary border-dark mr-2"
+                className="btn btn-primary border-dark relative mr-2"
                 type="button"
               >
-                <span className="btn-text">OK</span>
+                <span className="btn-text absolute text-[13px]">확인</span>
               </button>
-              <button className="btn btn-sm btn-primary" type="button">
-                <span className="btn-text">Cancel</span>
+              <button className="btn btn-primary relative" type="button">
+                <span className="btn-text absolute text-[13px]">취소</span>
               </button>
             </div> */}
           </div>
