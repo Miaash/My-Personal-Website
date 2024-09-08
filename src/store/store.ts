@@ -8,7 +8,7 @@ import { WindowStore } from "../types/window";
  */
 
 // store생성.
-// TODO(20240830/완료) session storage 저장
+// TODO(20240830/x) session storage 저장
 export const useWindowStore = create<WindowStore>()(
   // persist(
   (set) => ({
@@ -16,6 +16,7 @@ export const useWindowStore = create<WindowStore>()(
     windows: [],
     // window추가 action
     // TODO(20240822/완료) Window 중복 안되게 수정필요
+    // TODO(20240907/완료) Window추가 시, 나머지 window isSelected는 false로 변경
     addWindow: ({
       width,
       height,
@@ -28,21 +29,37 @@ export const useWindowStore = create<WindowStore>()(
       folderItems,
     }) =>
       set((state) => {
-        // 추가하려는 window가 기존 windowList에 존재하는지
+        // 기존 windowList에 추가하려는 title과 동일한 title이 존재하는지.
         const existingWindow = state.windows.find(
-          (window) => window.title === title,
+          (window) => window.contentKey === contentKey,
         );
 
+        // console.log(state);
+        const existingSelectedWindow = state.windows.find(
+          (window) => window.isSelected === true,
+        );
+
+        // console.log("isSelected가 true인 윈도우", existingSelectedWindow);
         // 존재하면 기존 창 isSelected를 true로 변경.
         if (existingWindow) {
           return {
             windows: state.windows.map((window) =>
-              window.title === title
+              window.contentKey === contentKey
                 ? { ...window, isShow: true, isSelected: true, isHide: false }
                 : { ...window, isSelected: false },
             ),
           };
         }
+
+        // if (existingSelectedWindow) {
+        //   return {
+        //     windows: state.windows.map((window) =>
+        //       window.isSelected === true
+        //         ? { ...window, isShow: true, isSelected: false, isHide: false }
+        //         : { ...window, isSelected: false },
+        //     ),
+        //   };
+        // }
 
         return {
           windows: [

@@ -1,8 +1,9 @@
-import Draggable from "react-draggable";
-import MyWebSiteDoc from "../doc/MyWebSiteDoc";
-import PortfoilioDoc from "../doc/PortfolioDoc";
-import ResumeDoc from "../doc/ResumeDoc";
 import { useEffect, useRef, useState } from "react";
+import Draggable from "react-draggable";
+import { contentKeyIcon } from "@/constants/windowData";
+import ResumeDoc from "../doc/ResumeDoc";
+import PortfolioDoc from "../doc/PortfolioDoc";
+import MyWebSiteDoc from "../doc/MyWebSiteDoc";
 import InternetDoc from "../doc/InternetDoc";
 /**
  * [Doc Window]
@@ -26,19 +27,12 @@ interface DocWindowPropsType {
   style?: React.CSSProperties;
 }
 
-// contentKey에 대응하는 컴포넌트 매핑
-const contentComponents: Record<string, JSX.Element> = {
+// contentKey에 대응하는 doc 컴포넌트 매핑
+export const docContentComponents: Record<string, JSX.Element> = {
   resume: <ResumeDoc />,
-  portfolio: <PortfoilioDoc />,
+  portfolio: <PortfolioDoc />,
   myWebSite: <MyWebSiteDoc />,
   internet: <InternetDoc />,
-};
-const contentKeyIcon: Record<string, string> = {
-  resume: "w95-resume-small",
-  portfolio: "w95-portfolio-small",
-  myWebSite: "w95-resume-small",
-  internet: "w95-internet-small",
-  photo: "w95-photo-small",
 };
 
 export default function DocWindow({
@@ -78,7 +72,7 @@ export default function DocWindow({
     <Draggable
       handle=".card-header"
       nodeRef={dragRef}
-      // bounds="body"
+      bounds="html"
       // disabled={isMaximized}
     >
       <div
@@ -142,7 +136,7 @@ export default function DocWindow({
           </div>
         </div>
         <div className="card-body doc">
-          <div>{contentComponents[contentKey]}</div>
+          <div>{docContentComponents[contentKey]}</div>
         </div>
       </div>
     </Draggable>

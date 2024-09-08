@@ -1,8 +1,33 @@
 import { FolderItemsType } from "@/types/window";
-
 /**
- * [폴더 content 데이터]
+ * [folder, doc content 관련 데이터]
  */
+
+// folder, doc contentKey에 대응하는 아이콘 small버전.
+// window창 header 또는 start popup list 아이콘으로 사용됨.
+export const contentKeyIcon: Record<string, string> = {
+  // folder
+  projects: "w95-opened-file-empty-small",
+  noname: "w95-opened-file-empty-small",
+  2022: "w95-opened-file-empty-small",
+  2023: "w95-opened-file-empty-small",
+  2024: "w95-opened-file-empty-small",
+  computer: "w95-computer-small",
+  music: "w95-cd-small",
+  recycleBin: "w95-bin-empty-small",
+  aboutMe: "w95-me-small",
+  calendar: "w95-calendar-small ",
+  photos: "w95-camera-small",
+  paint: "w95-paint-small",
+  // doc
+  resume: "w95-resume-small",
+  portfolio: "w95-portfolio-small",
+  myWebSite: "w95-resume-small",
+  internet: "w95-internet-small",
+  photo: "w95-photo-small",
+  // welcome
+  welcome: "w95-tip-small",
+};
 
 const defaultFolderData = {
   width: "550px",

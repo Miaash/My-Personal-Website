@@ -46,7 +46,7 @@ export default function WelcomeWindow({
     <Draggable
       handle=".card-header"
       nodeRef={dragRef}
-      // bounds="body"
+      bounds="html"
       // disabled={isMaximized}
     >
       <div
@@ -71,9 +71,14 @@ export default function WelcomeWindow({
         className={`card card-tertiary z-9999 fixed ${isShow ? "block" : "hidden"} h-[550px] w-[660px] ${isSelected ? "z-[9999]" : "z-[1]"}`}
       >
         <div
-          className={`card-header align-center flex w-full justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
+          className={`card-header flex w-full items-center justify-between pl-[3px] text-left ${isSelected ? "selected" : ""}`}
         >
-          <span className="text-center text-[10px] text-white">Welcome</span>
+          <div className="relative w-[70%] items-center">
+            <span className="w95-tip-small absolute top-[-7px] inline-block"></span>
+            <span className="absolute left-[20px] top-[-6px] text-[10px] text-white">
+              Welcome
+            </span>
+          </div>
           <div>
             {/* 숨기기버튼 */}
             <button

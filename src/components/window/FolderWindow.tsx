@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Draggable from "react-draggable";
 // import { useWindowStore } from "@/store/store";
 import { FolderItemsType, WindowType } from "@/types/window";
-import Draggable from "react-draggable";
 import FolderContainer from "../container/FolderContainer";
+import { contentKeyIcon } from "@/constants/windowData";
 
 /**
  * [Folder Window]
@@ -55,21 +56,6 @@ interface FolderWindowPropsType {
 // TODO(20240828/x) window창 드래그 후, max하면 중앙 배치 안되는 부분 수정필요
 // TODO(20240903/완료) Footer수정
 // TODO(20240903/완료) window타입 === childFolder의 경우 화면 전환 필요 ==> 여기서 새창 add로 전환.
-
-const contentKeyIcon: Record<string, string> = {
-  projects: "w95-opened-file-empty-small",
-  noname: "w95-opened-file-empty-small",
-  2022: "w95-opened-file-empty-small",
-  2023: "w95-opened-file-empty-small",
-  2024: "w95-opened-file-empty-small",
-  computer: "w95-computer-small",
-  music: "w95-cd-small",
-  recycleBin: "w95-bin-empty-small",
-  aboutMe: "w95-me-small",
-  calendar: "w95-calendar-small ",
-  photos: "w95-camera-small",
-  paint: "w95-paint-small",
-};
 
 export default function FolderWindow({
   id,
@@ -158,13 +144,13 @@ export default function FolderWindow({
     const randomTop = `${Math.floor(Math.random() * 50)}%`;
     const randomLeft = `${Math.floor(Math.random() * 50)}%`;
     setRandomPosition({ top: randomTop, left: randomLeft });
-  }, [isShow]);
+  }, []);
 
   return (
     <Draggable
       handle=".card-header"
       nodeRef={dragRef}
-      // bounds="body"
+      bounds="html"
       // disabled={isMaximized}
     >
       <div

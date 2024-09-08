@@ -1618,7 +1618,7 @@ button.section-black:focus {
   top: 0;
   padding: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 100000;
 }
 
 .navbar {
@@ -1639,6 +1639,7 @@ button.section-black:focus {
 
 .navbar-footer {
   position: relative;
+  border-top: 2px solid #ffffff;
 }
 
 .navbar-main .navbar-toggler-icon {
@@ -1873,6 +1874,43 @@ button.section-black:focus {
   display: none;
 }
 
+.start-button-popup {
+  display: absolute;
+  min-height: 300px;
+  width: 180px;
+  bottom: 34px;
+  left: 0px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #393939;
+  border-bottom: 2px solid #393939;
+  background-color: #c0c0c0;
+  z-index: 1000000;
+}
+
+.start-button-popup .popup-item {
+  display: flex;
+  width: 160px;
+  height: 30px;
+  padding: 5px 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.start-button-popup .popup-item.opened {
+  /* 눌렸을때 */
+  display: flex;
+  width: 160px;
+  height: 30px;
+  padding: 5px 10px;
+  list-style: none;
+  cursor: pointer;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+
 @media (max-width: 991.98px) {
   .navbar-nav .nav-link {
     padding: 0.625rem 0;
@@ -2009,6 +2047,7 @@ button.section-black:focus {
 
 .footer ul li {
   display: inline-block;
+  list-style: none;
 }
 
 .footer ul li a {
@@ -4682,9 +4721,23 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-smile-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-smile.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-tip {
   width: 40px;
   height: 40px;
+  background: url("../../public/images/w95-icons-tip.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-tip-small {
+  width: 17px;
+  height: 17px;
   background: url("../../public/images/w95-icons-tip.png") center no-repeat;
   background-size: contain;
 }

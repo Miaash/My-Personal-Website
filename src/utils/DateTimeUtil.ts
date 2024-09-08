@@ -14,8 +14,9 @@ export const formatTime = (date: Date) => {
 };
 
 export const formatTimeToString = (date: string) => {
+  // console.log(date);
   const period = date.slice(0, 2) === "오전" ? "AM" : "PM"; // 오전/오후
-  const time = date.slice(3, 7); // HH:MM
+  const time = date.slice(3, 8); // HH:MM
 
   return `${time} ${period}`;
 };
