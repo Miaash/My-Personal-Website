@@ -6,6 +6,7 @@ import Folders from "@/components/Folders";
 import DocWindow from "@/components/window/DocWindow";
 // import { useStore } from "@/hooks/useStore";
 import WelcomeWindow from "@/components/window/WelcomeWindow";
+import SystemInfoWindow from "@/components/window/SystemInfoWindow";
 
 /**
  * [메인페이지]
@@ -158,6 +159,22 @@ export default function MainPage() {
         if (window.windowType === "notice") {
           return (
             <WelcomeWindow
+              key={window.id}
+              id={window.id}
+              isShow={window.isShow}
+              isSelected={window.isSelected}
+              isHide={window.isHide}
+              onToggleShow={() => toggleShow(window.id)}
+              onToggleSelected={() => toggleSelected(window.id)}
+              onToggleClose={() => removeWindow(window.id)}
+              onToggleHide={() => toggleHide(window.id)}
+            />
+          );
+        }
+
+        if (window.windowType === "info") {
+          return (
+            <SystemInfoWindow
               key={window.id}
               id={window.id}
               isShow={window.isShow}

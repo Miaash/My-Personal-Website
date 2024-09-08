@@ -134,7 +134,7 @@ export default function WelcomeWindow({
                   <p className="py-[10px] text-[9px]">
                     {/* To open a program, you just click the Start button, and then click
               the program&apos;s icon.  */}
-                    &copy; 2024 Hong seonga. All rights reserved.
+                    &copy; 2024 hong seonga. All rights reserved.
                   </p>
                 </div>
               </div>

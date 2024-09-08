@@ -13,10 +13,11 @@ export const formatTime = (date: Date) => {
   return `${formmatedHour}:${formattedMinute} ${period}`;
 };
 
-export const formatTimeToString = (date: string) => {
-  // console.log(date);
-  const period = date.slice(0, 2) === "오전" ? "AM" : "PM"; // 오전/오후
-  const time = date.slice(3, 8); // HH:MM
+// export const formatTimeToString = (date: Date) => {
+//   console.log(date);
 
-  return `${time} ${period}`;
-};
+//   const period = date.slice(0, 2) === "오전" ? "AM" : "PM"; // 오전/오후
+//   const time = date.slice(3, 8); // HH:MM
+
+//   return `${time} ${period}`;
+// };

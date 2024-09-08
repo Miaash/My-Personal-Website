@@ -1677,7 +1677,7 @@ button.section-black:focus {
   border-left: 1px solid #08080e;
   border-right: 1px solid #fcfcfc;
   border-bottom: 1px solid #fcfcfc;
-  padding: 5px 15px;
+  padding: 5px;
   height: 80%;
 }
 
@@ -1895,6 +1895,12 @@ button.section-black:focus {
   padding: 5px 10px;
   list-style: none;
   cursor: pointer;
+  padding: 10px;
+}
+
+// 마지막 요소만 빼고 border값
+.start-button-popup .popup-item:not(:last-child) {
+  border-bottom: 1px solid black;
 }
 
 .start-button-popup .popup-item.opened {
@@ -4457,6 +4463,76 @@ textarea[resize="horizontal"] {
   background-size: contain; /** 이미지 비율 깨지지 않게 조절 가능 */
 }
 
+.w95-info-small {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-info.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-info {
+  width: 45px;
+  height: 45px;
+  background: url("../../public/images/w95-icons-info.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-search {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-search.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-setting {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-setting.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-speaker {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-speaker.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-world {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-world.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-usb {
+  width: 20px;
+  height: 20px;
+  background: url("../../public/images/w95-icons-usb.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-channels {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-channels.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-sand {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-sand.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-network {
+  width: 18px;
+  height: 18px;
+  background: url("../../public/images/w95-icons-network.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-closed-file {
   width: 40px;
   height: 40px;
@@ -4525,6 +4601,34 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-cDrive {
+  width: 40px;
+  height: 40px;
+  background: url("../../public/images/w95-icons-cDrive.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-dDrive {
+  width: 40px;
+  height: 40px;
+  background: url("../../public/images/w95-icons-dDrive.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-cDrive-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-cDrive.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-dDrive-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-dDrive.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-internet {
   width: 40px;
   height: 40px;
@@ -4584,13 +4688,6 @@ textarea[resize="horizontal"] {
 .w95-me {
   width: 40px;
   height: 40px;
-  background: url("../../public/images/w95-icons-me.png") center no-repeat;
-  background-size: contain;
-}
-
-.w95-me-small {
-  width: 17px;
-  height: 17px;
   background: url("../../public/images/w95-icons-me.png") center no-repeat;
   background-size: contain;
 }
@@ -4671,6 +4768,20 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-smile {
+  width: 30px;
+  height: 30px;
+  background: url("../../public/images/w95-icons-smile.png") center no-repeat;
+  background-size: contain;
+}
+
+.w95-smile-small {
+  width: 17px;
+  height: 17px;
+  background: url("../../public/images/w95-icons-smile.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-btn-x {
   width: 11px;
   height: 11px;
@@ -4711,20 +4822,6 @@ textarea[resize="horizontal"] {
   height: 250px;
   background: url("../../public/images/w95-icons-img-computer.png") center
     no-repeat;
-  background-size: contain;
-}
-
-.w95-smile {
-  width: 30px;
-  height: 30px;
-  background: url("../../public/images/w95-icons-smile.png") center no-repeat;
-  background-size: contain;
-}
-
-.w95-smile-small {
-  width: 17px;
-  height: 17px;
-  background: url("../../public/images/w95-icons-smile.png") center no-repeat;
   background-size: contain;
 }
 

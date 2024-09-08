@@ -12,9 +12,11 @@ import { useState } from "react";
  * - 시계.
  */
 
-// TODO(20240827/완료) start버튼에 열린 창 내역 뿌려주기
+// TODO(20240827/완료) start버튼에 폴더 아이콘 내역 뿌려주기
 // TODO(20240908/완료) contentKeyIcon => folder, doc이 추가될때마다 수정해야하는 번거로움. data파일로 옮기기
 // TODO(20240908/x) 모두닫기 기능 필요 우클릭
+// TODO(20240908/x) start popup에서 열린 window는 css 변경 처리 추가 필요.
+// TODO(20240908/x) nav바에 상태 아이콘 영역 추가 기능은 추후 개발예정.
 interface folderType {
   iconNm: string;
   contentKey: string;
@@ -47,7 +49,7 @@ export default function NavBar() {
     };
   });
 
-  const handleDoubleClick = (folder: folderType) => {
+  const handleFolderClick = (folder: folderType) => {
     addWindow({
       title: folder.iconNm,
       contentKey: folder.contentKey,
@@ -60,6 +62,7 @@ export default function NavBar() {
       height: folder.height,
       // parentFolderKey: parentFolderKey,
     });
+    setIsShow(!isShow);
   };
 
   return (
@@ -74,7 +77,7 @@ export default function NavBar() {
               className={`nav-link ${isShow ? "opened" : ""} flex items-center justify-center`}
               role="button"
             >
-              <span className="w95-windows h-18 w-18 inline-block"></span>
+              <span className="w95-windows inline-block h-[20px] w-[20px]"></span>
               <span className="nav-link-inner-text">Start</span>
             </a>
           </li>
@@ -108,17 +111,23 @@ export default function NavBar() {
                 // className={`popup-item ${window.isHide ? "" : "opened"}`}
                 className="popup-item"
                 key={idx}
-                onClick={() => handleDoubleClick(folder)}
+                onClick={() => handleFolderClick(folder)}
               >
                 <span
-                  className={`${contentKeyIcon[folder.contentKey]} mr-[10px] inline-block`}
+                  className={`${contentKeyIcon[folder.contentKey]} mr-[8px] inline-block h-[20px] w-[20px]`}
                 ></span>
                 <span className="text-[11px]">{folder.iconNm}</span>
               </li>
             ))}
           </div>
         </div>
-        <div className="time text-center">
+        <div className="time flex items-center text-center">
+          <div className="mr-[10px] flex items-center">
+            <span className="w95-speaker mr-[2px] inline-block h-[18px] w-[18px] cursor-pointer"></span>
+            <span className="w95-search mr-[2px] inline-block h-[18px] w-[18px] cursor-pointer"></span>
+            <span className="w95-world mr-[2px] inline-block h-[18px] w-[18px] cursor-pointer"></span>
+            <span className="w95-usb mr-[2px] inline-block h-[20px] w-[20px] cursor-pointer"></span>
+          </div>
           <Clock />
         </div>
       </nav>

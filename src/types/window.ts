@@ -1,7 +1,7 @@
 /**
  * [window관련 type모음]
  */
-export type WindowType = "folder" | "doc" | "childFolder" | "notice";
+export type WindowType = "folder" | "doc" | "childFolder" | "notice" | "info";
 
 // window - folder, doc 타입
 export interface FolderItemsType {

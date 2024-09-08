@@ -9,15 +9,17 @@ export const contentKeyIcon: Record<string, string> = {
   // folder
   projects: "w95-opened-file-empty-small",
   noname: "w95-opened-file-empty-small",
-  2022: "w95-opened-file-empty-small",
-  2023: "w95-opened-file-empty-small",
-  2024: "w95-opened-file-empty-small",
   computer: "w95-computer-small",
+  cDrive: "w95-cDrive-small",
+  dDrive: "w95-dDrive-small",
   music: "w95-cd-small",
   recycleBin: "w95-bin-empty-small",
   aboutMe: "w95-me-small",
   calendar: "w95-calendar-small ",
   photos: "w95-camera-small",
+  2022: "w95-opened-file-empty-small",
+  2023: "w95-opened-file-empty-small",
+  2024: "w95-opened-file-empty-small",
   paint: "w95-paint-small",
   // doc
   resume: "w95-resume-small",
@@ -27,6 +29,8 @@ export const contentKeyIcon: Record<string, string> = {
   photo: "w95-photo-small",
   // welcome
   welcome: "w95-tip-small",
+  // systemInfo
+  systemInfo: "w95-info-small",
 };
 
 const defaultFolderData = {
@@ -66,7 +70,28 @@ export const contentInfo: Record<string, FolderItemsType> = {
     iconImgNm: "w95-computer",
     textColor: "white",
     windowType: "folder",
-    folderItems: [],
+    folderItems: [
+      {
+        iconNm: "(C:)",
+        contentKey: "cDrive",
+        iconImgNm: "w95-cDrive",
+        textColor: "black",
+        windowType: "childFolder",
+        width: "550px",
+        height: "300px",
+        folderItems: [],
+      },
+      {
+        iconNm: "(D:)",
+        contentKey: "dDrive",
+        iconImgNm: "w95-dDrive",
+        textColor: "black",
+        windowType: "childFolder",
+        width: "550px",
+        height: "300px",
+        folderItems: [],
+      },
+    ],
   },
   music: {
     ...defaultFolderData,
@@ -210,6 +235,15 @@ export const contentInfo: Record<string, FolderItemsType> = {
     iconImgNm: "w95-paint",
     textColor: "white",
     windowType: "folder",
+    folderItems: [],
+  },
+  systemInfo: {
+    ...defaultFolderData,
+    iconNm: "System Info",
+    contentKey: "systemInfo",
+    iconImgNm: "w95-info",
+    textColor: "white",
+    windowType: "info",
     folderItems: [],
   },
 };
