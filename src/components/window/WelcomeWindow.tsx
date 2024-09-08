@@ -110,13 +110,13 @@ export default function WelcomeWindow({
         {/* widowcontents */}
         <div className="card-body">
           <div className="w-full" style={{ height: `calc(100% - 38px)` }}>
-            <div className="my-[10px] pl-[20px] text-[23px]">
-              제 사이트에 와주셔서 감사합니다.
+            <div className="pl-[20px] text-[20px]">
+              제 사이트에 방문해주셔서 감사합니다.
               {/* Welcome to My Website. */}
               {/* <span className="text-gray-100">2024</span> */}
             </div>
-            <div className="mt-[30px] flex h-full w-full justify-center">
-              <div className="bg-light-yellow flex h-full w-full flex-col justify-center p-[30px]">
+            <div className="mt-[20px] flex h-full w-full flex-col justify-center">
+              <div className="bg-light-yellow flex h-full w-full flex-col justify-center">
                 <div className="flex items-center justify-center">
                   <span className="w95-tip mr-[10px] mt-[10px] inline-block"></span>
                   <p className="inline-block text-center text-[20px]">
@@ -131,6 +131,11 @@ export default function WelcomeWindow({
                     클릭하세요.
                   </p>
                   <span className="w95-img-computer inline-block"></span>
+                  <p className="py-[10px] text-[9px]">
+                    {/* To open a program, you just click the Start button, and then click
+              the program&apos;s icon.  */}
+                    &copy; 2024 Hong seonga. All rights reserved.
+                  </p>
                 </div>
               </div>
             </div>

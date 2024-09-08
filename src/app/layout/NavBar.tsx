@@ -1,7 +1,8 @@
 "use client";
 import Clock from "@/components/common/Clock";
-import { contentKeyIcon } from "@/constants/windowData";
+import { contentInfo, contentKeyIcon } from "@/constants/windowData";
 import { useWindowStore } from "@/store/store";
+import { FolderItemsType, WindowType } from "@/types/window";
 import { useState } from "react";
 
 /**
@@ -13,19 +14,53 @@ import { useState } from "react";
 
 // TODO(20240827/완료) start버튼에 열린 창 내역 뿌려주기
 // TODO(20240908/완료) contentKeyIcon => folder, doc이 추가될때마다 수정해야하는 번거로움. data파일로 옮기기
-
+// TODO(20240908/x) 모두닫기 기능 필요 우클릭
+interface folderType {
+  iconNm: string;
+  contentKey: string;
+  iconImgNm: string;
+  textColor: string;
+  windowType: WindowType;
+  // onFolderClick: (contentKey: string) => void;
+  // parentFolderKey: string;
+  folderItems: FolderItemsType[];
+  width: string;
+  height: string;
+}
 export default function NavBar() {
   // 전역상태관리 state, action
-  const {
-    windows,
-    addWindow,
-    removeWindow,
-    toggleShow,
-    toggleSelected,
-    toggleHide,
-  } = useWindowStore();
-
+  const { windows, toggleHide, addWindow } = useWindowStore();
   const [isShow, setIsShow] = useState<boolean>(false);
+
+  const folderItems = Object.keys(contentInfo).map((key) => {
+    const item = contentInfo[key];
+    return {
+      iconNm: item.iconNm,
+      contentKey: item.contentKey,
+      iconImgNm: item.iconImgNm,
+      textColor: item.textColor,
+      windowType: item.windowType as WindowType,
+      folderItems: item.folderItems,
+      width: item.width,
+      height: item.height,
+      // parentFolderKey: item.parentFolderKey,
+    };
+  });
+
+  const handleDoubleClick = (folder: folderType) => {
+    addWindow({
+      title: folder.iconNm,
+      contentKey: folder.contentKey,
+      isShow: true,
+      isSelected: true,
+      isHide: false,
+      windowType: folder.windowType,
+      folderItems: folder.folderItems,
+      width: folder.width,
+      height: folder.height,
+      // parentFolderKey: parentFolderKey,
+    });
+  };
 
   return (
     <footer className="fixed bottom-0 left-0 w-full">
@@ -68,23 +103,19 @@ export default function NavBar() {
             </span>
           </div>
           <div className="flex flex-col">
-            {windows.map((window, idx) =>
-              window.windowType === "folder" ||
-              window.windowType === "notice" ? (
-                <li
-                  className={`popup-item ${window.isHide ? "" : "opened"}`}
-                  key={idx}
-                  onClick={() => toggleHide(window.id)}
-                >
-                  <span
-                    className={`${contentKeyIcon[window.contentKey]} mr-[10px] inline-block`}
-                  ></span>
-                  <span className="text-[12px]">{window.title}</span>
-                </li>
-              ) : (
-                <></>
-              ),
-            )}
+            {folderItems.map((folder, idx) => (
+              <li
+                // className={`popup-item ${window.isHide ? "" : "opened"}`}
+                className="popup-item"
+                key={idx}
+                onClick={() => handleDoubleClick(folder)}
+              >
+                <span
+                  className={`${contentKeyIcon[folder.contentKey]} mr-[10px] inline-block`}
+                ></span>
+                <span className="text-[11px]">{folder.iconNm}</span>
+              </li>
+            ))}
           </div>
         </div>
         <div className="time text-center">

@@ -63,11 +63,11 @@ export default function MainPage() {
   // TODO(20240828/x) 인터넷 클릭 시, window창 내부에 google띄우기
   // TODO(20240829/x) 인트로 페이지 제작 필요
 
-  const [selectedFolder, setSelectedFolder] = useState<string>("");
+  // const [selectedFolder, setSelectedFolder] = useState<string>("");
 
-  const handleFolderClick = (contentKey: string) => {
-    setSelectedFolder(contentKey);
-  };
+  // const handleFolderClick = (contentKey: string) => {
+  //   setSelectedFolder(contentKey);
+  // };
 
   useEffect(() => {
     addWindow({
@@ -91,7 +91,6 @@ export default function MainPage() {
   return (
     <>
       <Folders />
-
       {windows.map((window) => {
         if (
           window.windowType === "folder" ||
@@ -174,7 +173,7 @@ export default function MainPage() {
 
         return (
           <div key={window.id}>
-            화면을 렌더링하는 도중 에러가 발생했습니다. 관리자에게 문의하세요
+            화면을 렌더링하는 도중 에러가 발생했습니다. 관리자에게 문의하세요.
           </div>
         );
       })}
