@@ -149,7 +149,7 @@ export default function ResumeDoc() {
                   경매정보를 웹애플리케이션으로 전환.
                 </div>
                 <div className="pb-[5px] text-[15px] font-semibold text-[#347EA8]">
-                  &#91;사용기술&#93; Vue.js, Vuex, Java, Mybatis, Spring
+                  &#91;사용기술&#93; Vue2, Vuex, Java, Mybatis, Spring
                 </div>
                 <div className="pb-[5px] text-[15px] font-normal">
                   - 농산물 도매시장 조회 api 및 도매시장 리스트 화면 개발
@@ -218,7 +218,7 @@ export default function ResumeDoc() {
                   출하통지서를 전자통지서 시스템으로 전환.
                 </div>
                 <div className="pb-[5px] text-[15px] font-semibold text-[#347EA8]">
-                  &#91;사용기술&#93; Vue.js, Vuex, Java, Mybatis, Spring
+                  &#91;사용기술&#93; Vue2, Vuex, Java, Mybatis, Spring
                 </div>
                 <div className="pb-[5px] text-[15px] font-normal">
                   - 전자 출하 통지서를 도축일, 농가 별로 조회하는 목록 화면 개발
@@ -273,7 +273,7 @@ export default function ResumeDoc() {
                   이력서, 포트폴리오가 담긴 개인 웹사이트
                 </div>
                 <div className="pb-[5px] text-[15px] font-semibold text-[#347EA8]">
-                  &#91;사용기술&#93; Next.js, Zustand, Vercel
+                  &#91;사용기술&#93; Next.js, Typescript, Zustand, Vercel
                 </div>
                 <div className="pb-[5px] text-[15px] font-normal">
                   - Next.js를 사용한 window manager 기능 구현
@@ -309,14 +309,14 @@ export default function ResumeDoc() {
                 <RxDotFilled />
                 &nbsp;Tailwind CSS, Styled-components, SCSS
               </div>
-              <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
+              {/* <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
                 <RxDotFilled />
                 &nbsp;Java, Springboot, Mybatis
-              </div>
-              <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
+              </div> */}
+              {/* <div className="flex items-center py-[8px] text-center text-[15px] font-normal">
                 <RxDotFilled />
                 &nbsp;SQL
-              </div>
+              </div> */}
             </div>
             {/* Certification */}
             <div className="mb-[90px] flex flex-col">
