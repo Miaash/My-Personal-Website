@@ -4831,6 +4831,21 @@ textarea[resize="horizontal"] {
   background-size: contain;
 }
 
+.w95-img-system {
+  width: 190px;
+  height: 180px;
+  background: url("../../public/images/w95-icons-img-system.png") center
+    no-repeat;
+  background-size: contain;
+}
+
+.w95-img-me {
+  width: 153px;
+  height: 145px;
+  background: url("../../public/images/w95-icons-img-me.png") center no-repeat;
+  background-size: contain;
+}
+
 .w95-tip {
   width: 40px;
   height: 40px;

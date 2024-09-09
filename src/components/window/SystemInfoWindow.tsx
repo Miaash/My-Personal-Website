@@ -22,6 +22,7 @@ interface SystemInfoPropsType {
   //   style?: React.CSSProperties;
 }
 
+// TODO(20240910/x) 탭content 컴포넌트화 필요.
 export default function SystemInfoWindow({
   id,
   isShow,
@@ -36,21 +37,21 @@ export default function SystemInfoWindow({
 }: SystemInfoPropsType) {
   const dragRef = useRef<HTMLDivElement>(null);
   const [isMaximized, setIsMaximized] = useState<boolean>(false);
-  const [tabValue, setTabValue] = useState<number>(1);
+  const [tabId, setTabId] = useState<number>(1);
 
   const tabArr = [
     {
       id: 1,
-      name: "버전 정보",
+      name: "일반",
     },
     {
       id: 2,
-      name: "관리자 정보",
+      name: "개발자 정보",
     },
-    {
-      id: 3,
-      name: "기타 정보",
-    },
+    // {
+    //   id: 3,
+    //   name: "기타 정보",
+    // },
   ];
 
   // window창 확대/최소화
@@ -60,7 +61,7 @@ export default function SystemInfoWindow({
 
   // 탭버튼 클릭
   const handleTabClick = (v: number) => {
-    setTabValue(v);
+    setTabId(v);
   };
 
   return (
@@ -83,7 +84,7 @@ export default function SystemInfoWindow({
                 transform: "translate(0, 0)",
               }
             : {
-                height: "350px",
+                height: "450px",
                 width: "550px",
                 left: "35%",
                 top: "20%",
@@ -140,7 +141,7 @@ export default function SystemInfoWindow({
                 {tabArr.map((tab) => (
                   <li
                     key={tab.id}
-                    className={`nav-item ${tabValue === tab.id ? "active" : ""}`}
+                    className={`nav-item ${tabId === tab.id ? "active" : ""}`}
                     onClick={() => handleTabClick(tab.id)}
                   >
                     <span className="nav-text">{tab.name}</span>
@@ -150,34 +151,129 @@ export default function SystemInfoWindow({
               </ul>
               {/* tab contents */}
               <div className="tab-content" id="myTabContent">
-                {tabValue === 1 && (
+                {tabId === 1 && (
                   <div
                     className="tab-pane show active"
                     id="home"
                     role="tabpanel"
                     aria-labelledby="home-tab"
                   >
-                    <p>버전 정보</p>
+                    <div className="relative flex">
+                      <span className="w95-img-system absolute left-[25px] top-0 inline-block pl-[30px]"></span>
+                      <div className="absolute left-[250px] top-[0] flex flex-col">
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            시스템 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[10px]">
+                            Miasoft Windows 99
+                          </p>
+                          <p className="px-[20px] text-[10px]">
+                            Second Edition
+                          </p>
+                        </div>
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            버전 정보 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[10px]">Version 0.2</p>
+                        </div>
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            구현 기능 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[12px]">
+                            이력서, 포트폴리오 조회
+                          </p>
+                          <p className="px-[20px] text-[12px]">
+                            윈도우매니저 구현
+                          </p>
+                        </div>
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            사용 스택 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[10px]">
+                            Next.js 14, zustand, vercel, tailwind css
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
-                {tabValue === 2 && (
+                {tabId === 2 && (
                   <div
-                    className="tab-pane"
-                    id="profile"
+                    className="tab-pane show active"
+                    id="home"
                     role="tabpanel"
-                    aria-labelledby="profile-tab"
+                    aria-labelledby="home-tab"
                   >
-                    <p>관리자 정보</p>
-                  </div>
-                )}
-                {tabValue === 3 && (
-                  <div
-                    className="tab-pane"
-                    id="contact"
-                    role="tabpanel"
-                    aria-labelledby="contact-tab"
-                  >
-                    <p>기타</p>
+                    <div className="relative flex">
+                      <span className="w95-img-me absolute left-[45px] top-[15px] inline-block border-b-2 border-l-2 border-r-2 border-t-2 border-b-[#393939] border-l-white border-r-[#393939] border-t-white pl-[30px]"></span>
+                      <div className="absolute left-[250px] top-[0] flex flex-col">
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            이름 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[10px]">
+                            Hong seong a (Mia)
+                          </p>
+                        </div>
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            직업 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[10px]">
+                            Junior frontend developer
+                          </p>
+                        </div>
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            정보 <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px]">
+                            <a
+                              href="mailto:girl0930h@gmail.com"
+                              target="_blank"
+                              className="text-[10px] text-[#000000] underline"
+                            >
+                              girl0930h@gmail.com
+                            </a>
+                          </p>
+                          <p className="px-[20px]">
+                            <a
+                              href="https://github.com/Miaash"
+                              target="_blank"
+                              className="text-[10px] text-[#000000] underline"
+                            >
+                              github
+                            </a>
+                          </p>
+                          <p className="px-[20px] text-[12px]">
+                            <a
+                              href="https://eight-heath-b94.notion.site/Mia-s-Devlog-b60f645c2e054c3ea3419dabd2f3cc3a"
+                              target="_blank"
+                              className="text-[10px] text-[#000000] underline"
+                            >
+                              blog
+                            </a>
+                          </p>
+                        </div>
+                        <div className="mb-[10px] flex flex-col">
+                          <p className="text-[13px]">
+                            개발자의 한마디
+                            <span className="text-[10px]">:</span>
+                          </p>
+                          <p className="px-[20px] text-[10px]">
+                            Version 0.3 will be released on 2024/09/30.
+                          </p>
+                          <p className="relative px-[20px] text-[10px]">
+                            Thank you
+                            <span className="w95-smile-small absolute top-[2px] inline-block"></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

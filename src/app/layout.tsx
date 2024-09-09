@@ -4,7 +4,7 @@ import NavBar from "./layout/NavBar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MiaSoft99",
+  title: "Miasoft Windows 99",
   description: "hongseonga's website",
   icons: {
     icon: "/images/w95-icons-windows.png",
