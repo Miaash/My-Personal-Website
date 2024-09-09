@@ -1,6 +1,4 @@
-import { Noto_Sans } from "next/font/google";
 import Image from "next/image";
-import { useState } from "react";
 // import { Document, Page, pdfjs } from "react-pdf";
 
 /**
@@ -8,6 +6,7 @@ import { useState } from "react";
  */
 
 // TODO(20240829/완료) 포트폴리오 페이지 추가 - 이미지 추가 완료
+// TODO(20240910/x) PDFreader로 변경 필요
 
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -16,7 +15,7 @@ export default function PortfolioDoc() {
     "slide1.jpeg",
     "slide2.jpeg",
     "slide3.jpeg",
-    "slide4.jpeg",
+    "slide4.jpeg", // TODO(20240909/x)skill 슬라이드 업데이트 후 적용 필요
     "slide5.jpeg",
     "slide6.jpeg",
     "slide7.jpeg",
