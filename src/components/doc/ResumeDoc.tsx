@@ -324,10 +324,10 @@ export default function ResumeDoc() {
                 자격증.
               </div>
               <div className="mb-[12px] flex h-[25px] items-center border-l-[3px] border-l-[#37352f] px-[15px] text-center text-[18px] font-semibold">
-                정보처리기사 필기
+                정보처리기사
               </div>
               <div className="pb-[5px] text-[15px] font-normal text-[#787774]">
-                2023년 10월 취득
+                2024년 9월 취득
               </div>
             </div>
             {/* Educations */}
