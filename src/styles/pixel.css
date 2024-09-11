@@ -1900,12 +1900,12 @@ button.section-black:focus {
 
 // 마지막 요소만 빼고 border값
 .start-button-popup .popup-item:not(:last-child) {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 
 .start-button-popup .popup-item.opened {
   /* 눌렸을때 */
-  display: flex;
+  /* display: flex;
   width: 160px;
   height: 30px;
   padding: 5px 10px;
@@ -1914,7 +1914,7 @@ button.section-black:focus {
   border-top: 2px solid #000;
   border-left: 2px solid #000;
   border-right: 2px solid #efefef;
-  border-bottom: 2px solid #efefef;
+  border-bottom: 2px solid #efefef; */
 }
 
 @media (max-width: 991.98px) {
