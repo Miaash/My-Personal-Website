@@ -92,7 +92,7 @@ export default function WelcomeWindow({
             <button
               className="btn-control relative mr-2 p-0"
               type="button"
-              onClick={() => onMaximizeWindow()}
+              onClick={onMaximizeWindow}
             >
               <span
                 className={`${isMaximized ? "w95-btn-min" : "w95-btn-max"} absolute left-[1px] top-[1px]`}

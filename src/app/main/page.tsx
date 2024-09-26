@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useWindowStore } from "@/store/store";
 import FolderWindow from "@/components/window/FolderWindow";
 import Folders from "@/components/Folders";
@@ -70,7 +70,7 @@ export default function MainPage() {
   //   setSelectedFolder(contentKey);
   // };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     addWindow({
       title: "Welcome",
       contentKey: "welcome",

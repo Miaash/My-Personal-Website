@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 // import { useWindowStore } from "@/store/store";
 import { FolderItemsType, WindowType } from "@/types/window";
@@ -140,7 +140,7 @@ export default function FolderWindow({
   //   );
   // };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const randomTop = `${Math.floor(Math.random() * 50)}%`;
     const randomLeft = `${Math.floor(Math.random() * 50)}%`;
     setRandomPosition({ top: randomTop, left: randomLeft });
@@ -198,7 +198,7 @@ export default function FolderWindow({
             <button
               className="btn-control relative mr-2 p-0"
               type="button"
-              onClick={() => onMaximizeWindow()}
+              onClick={onMaximizeWindow}
             >
               <span
                 className={`${isMaximized ? "w95-btn-min" : "w95-btn-max"} absolute left-[1px] top-[1px]`}

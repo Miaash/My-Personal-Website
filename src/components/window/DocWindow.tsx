@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import { contentKeyIcon } from "@/constants/windowData";
 import ResumeDoc from "../doc/ResumeDoc";
@@ -62,7 +62,7 @@ export default function DocWindow({
     setIsMaximized(!isMaximized);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const randomTop = `${Math.floor(Math.random() * 50)}%`;
     const randomLeft = `${Math.floor(Math.random() * 50)}%`;
     setRandomPosition({ top: randomTop, left: randomLeft });
@@ -120,7 +120,7 @@ export default function DocWindow({
             <button
               className="btn-control relative mr-2 p-0"
               type="button"
-              onClick={() => onMaximizeWindow()}
+              onClick={onMaximizeWindow}
             >
               <span
                 className={`${isMaximized ? "w95-btn-min" : "w95-btn-max"} absolute left-[1px] top-[1px]`}
