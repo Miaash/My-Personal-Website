@@ -265,7 +265,7 @@ export default function SystemInfoWindow({
                             <span className="text-[10px]">:</span>
                           </p>
                           <p className="px-[20px] text-[10px]">
-                            Version 0.3 will be released on 2024/09/30.
+                            Version 0.3 will be released on October 31, 2024
                           </p>
                           <p className="relative px-[20px] text-[10px]">
                             Thank you

@@ -110,7 +110,7 @@ export default function WelcomeWindow({
         {/* widowcontents */}
         <div className="card-body info">
           <div className="w-full" style={{ height: `calc(100% - 38px)` }}>
-            <div className="pl-[20px] text-[20px]">
+            <div className="pl-[20px] pt-[5px] text-[20px]">
               제 사이트에 방문해주셔서 감사합니다.
               {/* Welcome to My Website. */}
               {/* <span className="text-gray-100">2024</span> */}
@@ -127,8 +127,17 @@ export default function WelcomeWindow({
                   <p className="text-[15px]">
                     {/* To open a program, you just click the Start button, and then click
               the program&apos;s icon.  */}
-                    프로그램을 실행하시려면, 시작버튼 또는 화면의 아이콘을
-                    클릭하세요.
+                    폴더의 내용이 궁금하시다면, 시작버튼을 클릭하시거나 화면의
+                    아이콘을 더블클릭하세요.
+                  </p>
+                  <p className="text-[15px]">
+                    {/* To open a program, you just click the Start button, and then click
+              the program&apos;s icon.  */}
+                    이력서와 포트폴리오가 궁금하시다면,
+                    <span className="px-[3px] text-[11px] font-medium">
+                      About me
+                    </span>
+                    폴더를 더블클릭하세요.
                   </p>
                   <span className="w95-img-computer inline-block"></span>
                   <p className="py-[10px] text-[9px]">
